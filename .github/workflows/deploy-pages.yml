@@ -37,6 +37,70 @@ jobs:
           mkdir -p _site/node_modules/three-mesh-bvh/build
           mkdir -p _site/node_modules/three-bvh-csg
           cp index.html style.css script.js robotics-studio.js cad-3mf.js cad-step.js cad-mesh-analysis.js cad-slicer.js pcb-manufacturing.js _site/
+          cp -R node_modules/three/build/. _site/node_modules/three/build/
+          cp node_modules/three/examples/jsm/controls/OrbitControls.js _site/node_modules/three/examples/jsm/controls/
+          cp node_modules/three/examples/jsm/utils/BufferGeometryUtils.js _site/node_modules/three/examples/jsm/utils/
+          cp node_modules/three/examples/jsm/loaders/OBJLoader.js node_modules/three/examples/jsm/loaders/STLLoader.js _site/node_modules/three/examples/jsm/loaders/
+          cp node_modules/three-mesh-bvh/build/index.module.js _site/node_modules/three-mesh-bvh/build/
+          cp -R node_modules/three-bvh-csg/src _site/node_modules/three-bvh-csg/
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+name: Deploy Smart Desk to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare static site
+        run: |
+          mkdir -p _site/node_modules/three/build
+          mkdir -p _site/node_modules/three/examples/jsm/{controls,utils,loaders}
+          mkdir -p _site/node_modules/three-mesh-bvh/build
+          mkdir -p _site/node_modules/three-bvh-csg
+          cp index.html style.css script.js robotics-studio.js cad-3mf.js cad-step.js cad-mesh-analysis.js cad-slicer.js pcb-manufacturing.js _site/
           cp node_modules/three/build/three.module.js _site/node_modules/three/build/three.module.js
           cp node_modules/three/examples/jsm/controls/OrbitControls.js _site/node_modules/three/examples/jsm/controls/
           cp node_modules/three/examples/jsm/utils/BufferGeometryUtils.js _site/node_modules/three/examples/jsm/utils/
