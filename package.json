@@ -1,0 +1,15 @@
+{
+  "name": "smart-desk",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check script.js && node --check robotics-studio.js && node --check server.mjs && node --check cad-mesh-analysis.js && node --check cad-slicer.js && node --check cad-3mf.js && node --check cad-step.js && node --check pcb-manufacturing.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "three": "^0.186.1",
+    "three-bvh-csg": "^0.0.18"
+  }
+}

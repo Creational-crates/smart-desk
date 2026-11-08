@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Desk OS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="top-bar">
+        <div class="greeting">
+            <span class="greeting-kicker">SMART DESK <span aria-hidden="true">·</span> YOUR PERSONAL SPACE</span>
+            <div class="greeting-message">
+                <p id="greetingText">Good morning</p>
+                <span id="displayName" class="greeting-name" hidden></span>
+            </div>
+            <span class="greeting-subtitle">A little room to think, create, and find your flow.</span>
+        </div>
+
+        <div class="date-time">
+            <div id="clock">--:--</div>
+            <div id="date">Loading date...</div>
+            <div id="day">Loading day...</div>
+        </div>
+    </header>
+
+    <main class="home-screen">
+        <div class="diwali-scene" aria-hidden="true">
+            <div class="diwali-toran">
+                <svg viewBox="0 0 1200 200" preserveAspectRatio="none" focusable="false">
+                    <defs>
+                        <pattern id="diwali-toran-leaves" width="30" height="22" patternUnits="userSpaceOnUse">
+                            <path d="M15 22V10M15 16C6 16 4 9 4 6c7 0 11 3 11 8m0 1c9 0 11-7 11-10-7 0-11 3-11 8" fill="none" stroke="#71814b" stroke-width="2.5" stroke-linecap="round"/>
+                        </pattern>
+                    </defs>
+                    <path d="M0 24H1200" fill="none" stroke="#9b5630" stroke-width="3"/>
+                    <path d="M0 24 Q100 82 200 24 Q300 96 400 24 Q500 108 600 24 Q700 108 800 24 Q900 96 1000 24 Q1100 82 1200 24" fill="none" stroke="#a94b24" stroke-width="10" stroke-linecap="round"/>
+                    <path d="M0 24 Q100 82 200 24 Q300 96 400 24 Q500 108 600 24 Q700 108 800 24 Q900 96 1000 24 Q1100 82 1200 24" fill="none" stroke="url(#diwali-toran-leaves)" stroke-width="20" stroke-linecap="round"/>
+                    <path d="M0 24 Q100 82 200 24 Q300 96 400 24 Q500 108 600 24 Q700 108 800 24 Q900 96 1000 24 Q1100 82 1200 24" fill="none" stroke="#edaa3d" stroke-width="5" stroke-dasharray="1 17" stroke-linecap="round"/>
+                    <path d="M0 24H1200" fill="none" stroke="#e2bb70" stroke-width="2" stroke-dasharray="2 8"/>
+                </svg>
+            </div>
+            <div class="diwali-hanging-garlands" aria-hidden="true">
+                <i class="diwali-hanging-garland"></i>
+                <i class="diwali-hanging-garland"></i>
+                <i class="diwali-hanging-garland"></i>
+                <i class="diwali-hanging-garland"></i>
+                <i class="diwali-hanging-garland"></i>
+                <i class="diwali-hanging-garland"></i>
+                <i class="diwali-hanging-garland"></i>
+                <i class="diwali-hanging-garland"></i>
+            </div>
+            <svg class="diwali-rangoli" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+                <defs>
+                    <radialGradient id="rangoli-ground">
+                        <stop offset=".76" stop-color="#fff8e9" stop-opacity=".88"/>
+                        <stop offset="1" stop-color="#f8e9ca" stop-opacity=".54"/>
+                    </radialGradient>
+                    <linearGradient id="rangoli-petal" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0" stop-color="#d5794e"/>
+                        <stop offset=".54" stop-color="#e6a14e"/>
+                        <stop offset="1" stop-color="#f3d58c"/>
+                    </linearGradient>
+                    <g id="rangoli-outer-petal">
+                        <path d="M200 193C176 164 158 101 200 31 242 101 224 164 200 193Z"/>
+                        <path d="M200 177C186 151 181 105 200 65 219 105 214 151 200 177Z" fill="none" stroke="#fff5da" stroke-width="2"/>
+                        <circle cx="200" cy="53" r="3" fill="#fff5da"/>
+                    </g>
+                    <g id="rangoli-inner-petal">
+                        <path d="M200 193C179 168 175 128 200 91 225 128 221 168 200 193Z"/>
+                        <path d="M200 180C188 158 189 132 200 113 211 132 212 158 200 180Z" fill="none" stroke="#fff8e7" stroke-width="2"/>
+                    </g>
+                </defs>
+                <circle cx="200" cy="200" r="190" fill="url(#rangoli-ground)"/>
+                <circle cx="200" cy="200" r="187" fill="none" stroke="#a94f3d" stroke-width="2"/>
+                <circle cx="200" cy="200" r="179" fill="none" stroke="#e5b752" stroke-width="5" stroke-dasharray="1 8" stroke-linecap="round"/>
+                <circle cx="200" cy="200" r="169" fill="none" stroke="#66846b" stroke-width="1.5"/>
+                <g fill="url(#rangoli-petal)" stroke="#a94f3d" stroke-width="1.5" stroke-linejoin="round">
+                    <use href="#rangoli-outer-petal"/>
+                    <use href="#rangoli-outer-petal" transform="rotate(22.5 200 200)" fill="#c85f52"/>
+                    <use href="#rangoli-outer-petal" transform="rotate(45 200 200)"/>
+                    <use href="#rangoli-outer-petal" transform="rotate(67.5 200 200)" fill="#c85f52"/>
+                    <use href="#rangoli-outer-petal" transform="rotate(90 200 200)"/>
+                    <use href="#rangoli-outer-petal" transform="rotate(112.5 200 200)" fill="#c85f52"/>
+                    <use href="#rangoli-outer-petal" transform="rotate(135 200 200)"/>
+                    <use href="#rangoli-outer-petal" transform="rotate(157.5 200 200)" fill="#c85f52"/>
+                    <use href="#rangoli-outer-petal" transform="rotate(180 200 200)"/>
+                    <use href="#rangoli-outer-petal" transform="rotate(202.5 200 200)" fill="#c85f52"/>
+                    <use href="#rangoli-outer-petal" transform="rotate(225 200 200)"/>
+                    <use href="#rangoli-outer-petal" transform="rotate(247.5 200 200)" fill="#c85f52"/>
+                    <use href="#rangoli-outer-petal" transform="rotate(270 200 200)"/>
+                    <use href="#rangoli-outer-petal" transform="rotate(292.5 200 200)" fill="#c85f52"/>
+                    <use href="#rangoli-outer-petal" transform="rotate(315 200 200)"/>
+                    <use href="#rangoli-outer-petal" transform="rotate(337.5 200 200)" fill="#c85f52"/>
+                </g>
+                <circle cx="200" cy="200" r="119" fill="none" stroke="#9c5145" stroke-width="2"/>
+                <circle cx="200" cy="200" r="112" fill="none" stroke="#f4d786" stroke-width="3" stroke-dasharray="3 5"/>
+                <g fill="#e1a44e" stroke="#a94f3d" stroke-width="1.5">
+                    <use href="#rangoli-inner-petal"/>
+                    <use href="#rangoli-inner-petal" transform="rotate(45 200 200)" fill="#c86b58"/>
+                    <use href="#rangoli-inner-petal" transform="rotate(90 200 200)"/>
+                    <use href="#rangoli-inner-petal" transform="rotate(135 200 200)" fill="#c86b58"/>
+                    <use href="#rangoli-inner-petal" transform="rotate(180 200 200)"/>
+                    <use href="#rangoli-inner-petal" transform="rotate(225 200 200)" fill="#c86b58"/>
+                    <use href="#rangoli-inner-petal" transform="rotate(270 200 200)"/>
+                    <use href="#rangoli-inner-petal" transform="rotate(315 200 200)" fill="#c86b58"/>
+                </g>
+                <circle cx="200" cy="200" r="87" fill="none" stroke="#66846b" stroke-width="2"/>
+                <circle cx="200" cy="200" r="80" fill="none" stroke="#e5b752" stroke-width="4" stroke-dasharray="1 7" stroke-linecap="round"/>
+                <g fill="#a94f3d" stroke="#fff5df" stroke-width="1.5">
+                    <circle cx="200" cy="16" r="5"/><circle cx="200" cy="384" r="5"/>
+                    <circle cx="16" cy="200" r="5"/><circle cx="384" cy="200" r="5"/>
+                    <circle cx="70" cy="70" r="5"/><circle cx="330" cy="70" r="5"/>
+                    <circle cx="70" cy="330" r="5"/><circle cx="330" cy="330" r="5"/>
+                </g>
+            </svg>
+            <div class="diwali-fireworks"></div>
+            <div class="diwali-burst diwali-burst-left"></div>
+            <div class="diwali-burst diwali-burst-right"></div>
+            <svg class="diwali-temple-lamp-defs" aria-hidden="true" focusable="false">
+                <defs>
+                    <linearGradient id="lamp-brass" x1="0" x2="1" y1=".15" y2=".8">
+                        <stop offset="0" stop-color="#80502d"/>
+                        <stop offset=".18" stop-color="#d39642"/>
+                        <stop offset=".38" stop-color="#fff0ad"/>
+                        <stop offset=".53" stop-color="#d59a45"/>
+                        <stop offset=".76" stop-color="#f4d17c"/>
+                        <stop offset="1" stop-color="#85502c"/>
+                    </linearGradient>
+                    <linearGradient id="lamp-flame" x1="0" x2="0" y1="1" y2="0">
+                        <stop offset="0" stop-color="#f18532"/>
+                        <stop offset=".58" stop-color="#ffd467"/>
+                        <stop offset="1" stop-color="#fff8d9"/>
+                    </linearGradient>
+                    <g id="temple-lamp">
+                        <ellipse cx="0" cy="382" rx="57" ry="9" fill="#6c452a" opacity=".16"/>
+                        <path d="M-50 355 Q-48 338-35 330 L-25 318 Q-15 313-8 314 L-8 298 Q-18 291-18 282 Q-18 270-7 264 L-5 242 Q-21 235-21 223 Q-21 211-6 204 L-6 184 Q-16 178-15 168 Q-14 158-3 153 L-3 135 Q-20 128-34 119 Q-49 109-55 93 Q-46 98-35 94 Q-25 89-16 95 Q-7 100 0 91 Q7 100 16 95 Q25 89 35 94 Q46 98 55 93 Q49 109 34 119 Q20 128 3 135 L3 153 Q14 158 15 168 Q16 178 6 184 L6 204 Q21 211 21 223 Q21 235 5 242 L7 264 Q18 270 18 282 Q18 291 8 298 L8 314 Q20 313 27 318 L38 330 Q50 338 52 355 Q26 367 0 367 Q-27 367-50 355Z" fill="url(#lamp-brass)" stroke="#82512c" stroke-width="2.5" stroke-linejoin="round"/>
+                        <path d="M-55 93 Q-41 101-26 96 Q-14 90-7 98 Q0 105 7 98 Q14 90 26 96 Q41 101 55 93" fill="none" stroke="#fff0b0" stroke-width="3"/>
+                        <ellipse cx="0" cy="92" rx="55" ry="8" fill="#f3d17a" stroke="#89542d" stroke-width="2"/>
+                        <path d="M-37 104 Q0 121 37 104 Q22 134 0 139 Q-22 134-37 104Z" fill="url(#lamp-brass)" stroke="#8f582e" stroke-width="2"/>
+                        <path d="M-24 112 Q0 123 24 112" fill="none" stroke="#fff0b0" stroke-width="2"/>
+                        <path d="M-7 94 Q-13 84-10 73 Q-8 64 0 54 Q9 66 10 76 Q12 86 5 94Z" fill="url(#lamp-flame)" stroke="#c66d2e" stroke-width="1.5"/>
+                        <path d="M-2 91 Q-6 83 0 72 Q5 82 2 91Z" fill="#fff9dc"/>
+                        <path d="M-40 96 Q-45 87-42 81 Q-38 87-35 96M40 96 Q45 87 42 81 Q38 87 35 96" fill="url(#lamp-flame)" stroke="#cb7734" stroke-width="1.2"/>
+                        <path d="M-17 153 Q0 162 17 153M-15 168 Q0 176 15 168M-18 207 Q0 218 18 207M-17 224 Q0 233 17 224M-14 267 Q0 275 14 267M-14 282 Q0 290 14 282M-25 320 Q0 329 25 320M-39 338 Q0 352 39 338M-47 354 Q0 370 49 354" fill="none" stroke="#fff0b0" stroke-width="2"/>
+                        <path d="M-5 183 L-5 202 M5 242 L5 263 M-5 297 L-5 314" fill="none" stroke="#87512c" stroke-width="2"/>
+                        <g fill="#85502b" stroke="#ffe2a0" stroke-width="1">
+                            <circle cx="0" cy="161" r="3"/><circle cx="0" cy="216" r="3"/>
+                            <circle cx="0" cy="274" r="3"/><circle cx="0" cy="327" r="3"/>
+                            <circle cx="-24" cy="111" r="2"/><circle cx="24" cy="111" r="2"/>
+                            <circle cx="-29" cy="343" r="2"/><circle cx="29" cy="343" r="2"/>
+                        </g>
+                        <path d="M-25 318 Q0 310 25 318M-32 331 Q0 340 32 331" fill="none" stroke="#89542d" stroke-width="2"/>
+                    </g>
+                </defs>
+            </svg>
+            <svg class="diwali-temple-lamp diwali-temple-lamp-left" viewBox="-60 48 120 350" aria-hidden="true" focusable="false">
+                <use href="#temple-lamp"/>
+            </svg>
+            <svg class="diwali-temple-lamp diwali-temple-lamp-right" viewBox="-60 48 120 350" aria-hidden="true" focusable="false">
+                <use href="#temple-lamp"/>
+            </svg>
+        </div>
+        <div class="assistant-area">
+            
+<div class="assistant-area">
+    <div class="bubble-universe" id="bubbleUniverse">
+        <button
+            class="assistant-bubble"
+            id="assistantBubble"
+            aria-label="Open assistant bubbles"
+            aria-expanded="false"
+            aria-controls="orbitBubbles"
+        >
+            <span class="water-orb">
+                <span class="orb-shine"></span>
+                <span class="orb-wave wave-one"></span>
+                <span class="orb-wave wave-two"></span>
+                <span class="orb-core"></span>
+            </span>
+        </button>
+
+        <div class="orbit-bubbles" id="orbitBubbles" aria-hidden="true">
+            <button class="orbit-bubble bubble-one design-orbit-bubble" data-new-design aria-label="Open 3D Studios" aria-controls="newDesign">
+                <svg class="printer-icon" viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="m10 12 9-5h19v27l-9 6H10V12Z" />
+                    <path d="M10 12h19v28M29 12l9-5M14 16v17m11-17v7m-11 10h11" />
+                    <path d="m14 30 7-4 7 4-7 4-7-4Zm7-4v5" />
+                    <path d="M19 15h7m-3 0v7l-2 3" />
+                </svg>
+                <span class="design-add-badge" aria-hidden="true">+</span>
+                <span class="orbit-label">3D Studios</span>
+            </button>
+            <button class="orbit-bubble bubble-two pcb-orbit-bubble" data-pcb-design aria-label="Open PCB building studio" aria-controls="pcbSetup">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8h4v4H8zM14 8h2M14 11h2M8 14h2M8 17h2M14 14h2M14 17h2M2 8h2M2 12h2M2 16h2M20 8h2M20 12h2M20 16h2M8 2v2M12 2v2M16 2v2M8 20v2M12 20v2M16 20v2"/></svg>
+                <span class="orbit-label">PCB studio</span>
+            </button>
+            <button class="orbit-bubble bubble-three robotics-orbit-bubble" data-robotics-design aria-label="Open robotics studio" aria-controls="roboticsStudio">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8h8a3 3 0 0 1 3 3v5a2 2 0 0 1-2 2h-1l-2-2h-4l-2 2H7a2 2 0 0 1-2-2v-5a3 3 0 0 1 3-3Z"/><path d="M12 4v4m-2-4h4"/><path d="M9 12v3m-1.5-1.5h3M15.5 12.5h.01m2 2h.01"/></svg>
+                <span class="orbit-label">Robotics studio</span>
+            </button>
+            <button class="orbit-bubble bubble-four canvas-orbit-bubble" data-canvas-design aria-label="Open 2D canvas studio" aria-controls="canvasSetup">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20 15.5 4.5a2.1 2.1 0 0 1 3.3 2.6L7.3 22H4v-2Z"/><path d="m13.8 6.8 3.4 2.6M4 16h5"/></svg>
+                <span class="orbit-label">Canvas studio</span>
+            </button>
+            <button class="orbit-bubble bubble-five" aria-label="Open blank screen from bubble 5"></button>
+            <button class="orbit-bubble bubble-six" aria-label="Open blank screen from bubble 6"></button>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </main>
+
+   
+<button
+    class="sidebar-trigger left-trigger"
+    id="leftSidebarTrigger"
+    aria-label="Open left sidebar"
+    aria-expanded="false"
+    aria-controls="leftSidebar"
+>
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<button
+    class="sidebar-trigger right-trigger"
+    id="rightSidebarTrigger"
+    aria-label="Open right sidebar"
+    aria-expanded="false"
+    aria-controls="rightSidebar"
+>
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar sidebar-left" id="leftSidebar" aria-hidden="true">
+        <div class="sidebar-header">
+            <div class="sidebar-brand">
+                <span>
+                    <strong>Smart Bar</strong>
+                    <small>YOUR PERSONAL SPACE</small>
+                </span>
+            </div>
+            <button class="close-button" aria-label="Close left sidebar">
+                &times;
+            </button>
+        </div>
+        <div class="workspace-view">
+        <p class="sidebar-section-label">WORKSPACE</p>
+        <nav class="sidebar-nav" aria-label="Workspace">
+            <button class="sidebar-link active" type="button" data-nav-item="main-menu" aria-pressed="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3.5 10 8.5-7 8.5 7v9.5a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1V10Z"/><path d="M9 20.5v-7h6v7"/></svg>
+                <span>Main Menu</span>
+                <span class="nav-indicator" aria-hidden="true"></span>
+            </button>
+            <button class="sidebar-link" type="button" data-nav-item="customisation" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a2 2 0 0 1 2 1.7l.2 1.1a7 7 0 0 1 1.5.9l1-.4a2 2 0 0 1 2.5.9l.5.9a2 2 0 0 1-.5 2.6l-.9.7a7 7 0 0 1 0 1.8l.9.7a2 2 0 0 1 .5 2.6l-.5.9a2 2 0 0 1-2.5.9l-1-.4a7 7 0 0 1-1.5.9l-.2 1.1a2 2 0 0 1-2 1.7h-1a2 2 0 0 1-2-1.7l-.2-1.1a7 7 0 0 1-1.5-.9l-1 .4a2 2 0 0 1-2.5-.9l-.5-.9a2 2 0 0 1 .5-2.6l.9-.7a7 7 0 0 1 0-1.8l-.9-.7a2 2 0 0 1-.5-2.6l.5-.9a2 2 0 0 1 2.5-.9l1 .4a7 7 0 0 1 1.5-.9l.2-1.1a2 2 0 0 1 2-1.7h1Z"/><circle cx="11.5" cy="12" r="3"/></svg>
+                <span>Customisation</span>
+                <span class="nav-indicator" aria-hidden="true"></span>
+            </button>
+            <button class="sidebar-link" type="button" data-nav-item="settings" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 7 7m10 10 1.4 1.4m0-12.8L17 7M7 17l-1.4 1.4"/><circle cx="12" cy="12" r="4"/></svg>
+                <span>Settings</span>
+                <span class="nav-indicator" aria-hidden="true"></span>
+            </button>
+        </nav>
+        </div>
+        <section class="customisation-panel" data-theme-panel aria-label="Theme customisation" hidden>
+            <button class="custom-back" type="button" data-theme-back>
+                <span aria-hidden="true">&larr;</span> Back to menu
+            </button>
+            <div class="customisation-heading">
+                <span class="customisation-kicker">YOUR DESK, YOUR FLOW</span>
+                <h3>Set the mood</h3>
+                <p>Choose colours that make this space feel like yours.</p>
+            </div>
+            <label class="diwali-theme-toggle">
+                <span class="diwali-toggle-copy">
+                    <strong>Diwali special edition</strong>
+                    <small>Warm festive colours, diyas &amp; marigold decor</small>
+                </span>
+                <input type="checkbox" data-diwali-theme-toggle role="switch" aria-label="Diwali theme">
+                <span class="diwali-toggle-track" aria-hidden="true"><i></i></span>
+            </label>
+            <div class="colour-controls">
+                <label class="colour-control">
+                    <span class="colour-control-copy">
+                        <strong>Main colour</strong>
+                        <small>Accents &amp; water orb</small>
+                    </span>
+                    <input type="color" data-theme-input="main" value="#6487bd" aria-label="Choose main colour">
+                </label>
+                <label class="colour-control">
+                    <span class="colour-control-copy">
+                        <strong>Side colour</strong>
+                        <small>Sidebar &amp; soft surfaces</small>
+                    </span>
+                    <input type="color" data-theme-input="side" value="#e7f2fb" aria-label="Choose side colour">
+                </label>
+            </div>
+            <div class="preset-heading">
+                <span>COLOUR PALETTES</span>
+                <span>Curated for you</span>
+            </div>
+            <div class="theme-presets" role="group" aria-label="Predefined colour palettes">
+                <button class="theme-preset" type="button" data-theme-preset data-main="#6487bd" data-side="#e7f2fb" aria-pressed="true">
+                    <span class="preset-swatches"><i></i><i></i></span><span>Ocean mist</span><span class="preset-check" aria-hidden="true">✓</span>
+                </button>
+                <button class="theme-preset" type="button" data-theme-preset data-main="#198f88" data-side="#e5f4f0" aria-pressed="false">
+                    <span class="preset-swatches"><i></i><i></i></span><span>Quiet lagoon</span><span class="preset-check" aria-hidden="true">✓</span>
+                </button>
+                <button class="theme-preset" type="button" data-theme-preset data-main="#8270b8" data-side="#f0edf8" aria-pressed="false">
+                    <span class="preset-swatches"><i></i><i></i></span><span>Soft lilac</span><span class="preset-check" aria-hidden="true">✓</span>
+                </button>
+                <button class="theme-preset" type="button" data-theme-preset data-main="#c47767" data-side="#f8eee9" aria-pressed="false">
+                    <span class="preset-swatches"><i></i><i></i></span><span>Warm tide</span><span class="preset-check" aria-hidden="true">✓</span>
+                </button>
+                <button class="theme-preset" type="button" data-theme-preset data-main="#526c8c" data-side="#e9eef4" aria-pressed="false">
+                    <span class="preset-swatches"><i></i><i></i></span><span>Deep current</span><span class="preset-check" aria-hidden="true">✓</span>
+                </button>
+            </div>
+        </section>
+        <section class="account-panel" data-account-panel aria-label="Account" hidden>
+            <button class="custom-back" type="button" data-account-back>
+                <span aria-hidden="true">&larr;</span> Back to menu
+            </button>
+            <div class="customisation-heading">
+                <span class="customisation-kicker">PERSONAL</span>
+                <h3>Your account</h3>
+                <p>Make this space feel like yours.</p>
+            </div>
+            <div data-account-menu>
+                <button class="account-option" type="button" data-open-name>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+                    <span class="account-option-copy">
+                        <strong>Your name</strong>
+                        <small data-account-current-name>Not set</small>
+                    </span>
+                    <span class="account-option-arrow" aria-hidden="true">&rarr;</span>
+                </button>
+            </div>
+            <div class="name-editor" data-name-editor hidden>
+                <button class="custom-back" type="button" data-name-back>
+                    <span aria-hidden="true">&larr;</span> Back to account
+                </button>
+                <div class="customisation-heading">
+                    <span class="customisation-kicker">YOUR PROFILE</span>
+                    <h3>Your name</h3>
+                    <p>It will appear beside your greeting.</p>
+                </div>
+                <form class="name-form" data-name-form>
+                    <label for="nameInputLeft">Name</label>
+                    <input id="nameInputLeft" data-name-input type="text" maxlength="40" autocomplete="name" required>
+                    <button class="name-save" type="submit">Save name</button>
+                    <p class="name-status" data-name-status role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+        <div class="sidebar-footer">
+            <p class="sidebar-section-label">PERSONAL</p>
+            <nav class="sidebar-nav" aria-label="Personal">
+                <button class="sidebar-link" type="button" data-nav-item="account" aria-pressed="false">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+                    <span>Account</span>
+                </button>
+                <button class="sidebar-link" type="button" data-nav-item="info" aria-pressed="false">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9a2.5 2.5 0 1 1 4.6 1.4c-.8 1.1-2.2 1.2-2.2 3m0 3.2h.01"/></svg>
+                    <span>Info</span>
+                </button>
+            </nav>
+            <button class="appearance-toggle" type="button" data-color-mode-toggle role="switch" aria-checked="false" aria-label="Dark mode">
+                <span class="appearance-toggle-icon" aria-hidden="true">☾</span>
+                <span class="appearance-toggle-label">Dark mode</span>
+                <span class="appearance-toggle-track" aria-hidden="true"><i></i></span>
+            </button>
+            <div class="sidebar-signature">
+                <span class="signature-dot"></span>
+                <span>Made for your flow</span>
+            </div>
+        </div>
+    </aside>
+
+    <aside class="sidebar sidebar-right" id="rightSidebar" aria-hidden="true">
+        <div class="sidebar-header">
+            <div class="sidebar-brand">
+                <span>
+                    <strong>Smart Bar</strong>
+                    <small>YOUR PERSONAL SPACE</small>
+                </span>
+            </div>
+            <button class="close-button" aria-label="Close right sidebar">
+                &times;
+            </button>
+        </div>
+        <div class="workspace-view">
+        <p class="sidebar-section-label">WORKSPACE</p>
+        <nav class="sidebar-nav" aria-label="Workspace">
+            <button class="sidebar-link active" type="button" data-nav-item="main-menu" aria-pressed="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3.5 10 8.5-7 8.5 7v9.5a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1V10Z"/><path d="M9 20.5v-7h6v7"/></svg>
+                <span>Main Menu</span>
+                <span class="nav-indicator" aria-hidden="true"></span>
+            </button>
+            <button class="sidebar-link" type="button" data-nav-item="customisation" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a2 2 0 0 1 2 1.7l.2 1.1a7 7 0 0 1 1.5.9l1-.4a2 2 0 0 1 2.5.9l.5.9a2 2 0 0 1-.5 2.6l-.9.7a7 7 0 0 1 0 1.8l.9.7a2 2 0 0 1 .5 2.6l-.5.9a2 2 0 0 1-2.5.9l-1-.4a7 7 0 0 1-1.5.9l-.2 1.1a2 2 0 0 1-2 1.7h-1a2 2 0 0 1-2-1.7l-.2-1.1a7 7 0 0 1-1.5-.9l-1 .4a2 2 0 0 1-2.5-.9l-.5-.9a2 2 0 0 1 .5-2.6l.9-.7a7 7 0 0 1 0-1.8l-.9-.7a2 2 0 0 1-.5-2.6l.5-.9a2 2 0 0 1 2.5-.9l1 .4a7 7 0 0 1 1.5-.9l.2-1.1a2 2 0 0 1 2-1.7h1Z"/><circle cx="11.5" cy="12" r="3"/></svg>
+                <span>Customisation</span>
+                <span class="nav-indicator" aria-hidden="true"></span>
+            </button>
+            <button class="sidebar-link" type="button" data-nav-item="settings" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 7 7m10 10 1.4 1.4m0-12.8L17 7M7 17l-1.4 1.4"/><circle cx="12" cy="12" r="4"/></svg>
+                <span>Settings</span>
+                <span class="nav-indicator" aria-hidden="true"></span>
+            </button>
+        </nav>
+        </div>
+        <section class="customisation-panel" data-theme-panel aria-label="Theme customisation" hidden>
+            <button class="custom-back" type="button" data-theme-back>
+                <span aria-hidden="true">&larr;</span> Back to menu
+            </button>
+            <div class="customisation-heading">
+                <span class="customisation-kicker">YOUR DESK, YOUR FLOW</span>
+                <h3>Set the mood</h3>
+                <p>Choose colours that make this space feel like yours.</p>
+            </div>
+            <label class="diwali-theme-toggle">
+                <span class="diwali-toggle-copy">
+                    <strong>Diwali special edition</strong>
+                    <small>Warm festive colours, diyas &amp; marigold decor</small>
+                </span>
+                <input type="checkbox" data-diwali-theme-toggle role="switch" aria-label="Diwali theme">
+                <span class="diwali-toggle-track" aria-hidden="true"><i></i></span>
+            </label>
+            <div class="colour-controls">
+                <label class="colour-control">
+                    <span class="colour-control-copy">
+                        <strong>Main colour</strong>
+                        <small>Accents &amp; water orb</small>
+                    </span>
+                    <input type="color" data-theme-input="main" value="#6487bd" aria-label="Choose main colour">
+                </label>
+                <label class="colour-control">
+                    <span class="colour-control-copy">
+                        <strong>Side colour</strong>
+                        <small>Sidebar &amp; soft surfaces</small>
+                    </span>
+                    <input type="color" data-theme-input="side" value="#e7f2fb" aria-label="Choose side colour">
+                </label>
+            </div>
+            <div class="preset-heading">
+                <span>COLOUR PALETTES</span>
+                <span>Curated for you</span>
+            </div>
+            <div class="theme-presets" role="group" aria-label="Predefined colour palettes">
+                <button class="theme-preset" type="button" data-theme-preset data-main="#6487bd" data-side="#e7f2fb" aria-pressed="true">
+                    <span class="preset-swatches"><i></i><i></i></span><span>Ocean mist</span><span class="preset-check" aria-hidden="true">✓</span>
+                </button>
+                <button class="theme-preset" type="button" data-theme-preset data-main="#198f88" data-side="#e5f4f0" aria-pressed="false">
+                    <span class="preset-swatches"><i></i><i></i></span><span>Quiet lagoon</span><span class="preset-check" aria-hidden="true">✓</span>
+                </button>
+                <button class="theme-preset" type="button" data-theme-preset data-main="#8270b8" data-side="#f0edf8" aria-pressed="false">
+                    <span class="preset-swatches"><i></i><i></i></span><span>Soft lilac</span><span class="preset-check" aria-hidden="true">✓</span>
+                </button>
+                <button class="theme-preset" type="button" data-theme-preset data-main="#c47767" data-side="#f8eee9" aria-pressed="false">
+                    <span class="preset-swatches"><i></i><i></i></span><span>Warm tide</span><span class="preset-check" aria-hidden="true">✓</span>
+                </button>
+                <button class="theme-preset" type="button" data-theme-preset data-main="#526c8c" data-side="#e9eef4" aria-pressed="false">
+                    <span class="preset-swatches"><i></i><i></i></span><span>Deep current</span><span class="preset-check" aria-hidden="true">✓</span>
+                </button>
+            </div>
+        </section>
+        <section class="account-panel" data-account-panel aria-label="Account" hidden>
+            <button class="custom-back" type="button" data-account-back>
+                <span aria-hidden="true">&larr;</span> Back to menu
+            </button>
+            <div class="customisation-heading">
+                <span class="customisation-kicker">PERSONAL</span>
+                <h3>Your account</h3>
+                <p>Make this space feel like yours.</p>
+            </div>
+            <div data-account-menu>
+                <button class="account-option" type="button" data-open-name>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+                    <span class="account-option-copy">
+                        <strong>Your name</strong>
+                        <small data-account-current-name>Not set</small>
+                    </span>
+                    <span class="account-option-arrow" aria-hidden="true">&rarr;</span>
+                </button>
+            </div>
+            <div class="name-editor" data-name-editor hidden>
+                <button class="custom-back" type="button" data-name-back>
+                    <span aria-hidden="true">&larr;</span> Back to account
+                </button>
+                <div class="customisation-heading">
+                    <span class="customisation-kicker">YOUR PROFILE</span>
+                    <h3>Your name</h3>
+                    <p>It will appear beside your greeting.</p>
+                </div>
+                <form class="name-form" data-name-form>
+                    <label for="nameInputRight">Name</label>
+                    <input id="nameInputRight" data-name-input type="text" maxlength="40" autocomplete="name" required>
+                    <button class="name-save" type="submit">Save name</button>
+                    <p class="name-status" data-name-status role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+        <div class="sidebar-footer">
+            <p class="sidebar-section-label">PERSONAL</p>
+            <nav class="sidebar-nav" aria-label="Personal">
+                <button class="sidebar-link" type="button" data-nav-item="account" aria-pressed="false">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+                    <span>Account</span>
+                </button>
+                <button class="sidebar-link" type="button" data-nav-item="info" aria-pressed="false">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9a2.5 2.5 0 1 1 4.6 1.4c-.8 1.1-2.2 1.2-2.2 3m0 3.2h.01"/></svg>
+                    <span>Info</span>
+                </button>
+            </nav>
+            <button class="appearance-toggle" type="button" data-color-mode-toggle role="switch" aria-checked="false" aria-label="Dark mode">
+                <span class="appearance-toggle-icon" aria-hidden="true">☾</span>
+                <span class="appearance-toggle-label">Dark mode</span>
+                <span class="appearance-toggle-track" aria-hidden="true"><i></i></span>
+            </button>
+            <div class="sidebar-signature">
+                <span class="signature-dot"></span>
+                <span>Made for your flow</span>
+            </div>
+        </div>
+    </aside>
+
+    <div
+        class="blank-screen"
+        id="blankScreen"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Blank screen"
+        aria-hidden="true"
+        tabindex="-1"
+    >
+        <section class="robotics-editor" id="roboticsStudio" aria-label="Robotics studio" hidden>
+            <header class="robotics-topbar">
+                <div class="robotics-brand">
+                    <button class="canvas-home-button" type="button" data-close-robotics aria-label="Close robotics studio">‹</button>
+                    <span class="robotics-brand-mark" aria-hidden="true">R</span>
+                    <div class="robotics-project-title">
+                        <strong>Robotics studio</strong>
+                        <span>ARDUINO UNO <i></i> SAVES ON THIS DEVICE</span>
+                    </div>
+                </div>
+                <div class="robotics-top-actions">
+                    <label class="robotics-template-picker">
+                        <span class="visually-hidden">Starter robot example</span>
+                        <select data-robotics-template aria-label="Starter robot example">
+                            <option value="">Starter examples…</option>
+                            <option value="obstacle-rover">Obstacle-avoiding rover</option>
+                            <option value="plant-monitor">Plant monitor</option>
+                            <option value="servo-scanner">Servo sensor scanner</option>
+                        </select>
+                    </label>
+                    <button type="button" data-robotics-load-template>Load example</button>
+                    <label class="robotics-low-toggle" for="roboticsLowMode">
+                        <span>Low-end mode</span>
+                        <input id="roboticsLowMode" data-robotics-low type="checkbox" role="switch" aria-label="Low-end line-rendered mode">
+                        <span class="robotics-switch-track" aria-hidden="true"><i></i></span>
+                    </label>
+                    <button type="button" data-robotics-run aria-pressed="false">▶ Run simulation</button>
+                    <button type="button" data-robotics-stop disabled>■ Stop</button>
+                    <button type="button" data-robotics-save>Save</button>
+                    <button type="button" data-robotics-export title="Download a backup of this robotics project">Export project</button>
+                    <button type="button" data-robotics-import-trigger title="Open a robotics project JSON backup">Import project</button>
+                    <input type="file" data-robotics-import accept=".json,application/json" hidden>
+                </div>
+            </header>
+            <div class="robotics-workspace">
+                <aside class="robotics-catalog" aria-label="Robotics parts">
+                    <div class="robotics-panel-heading">
+                        <span>PARTS LIBRARY</span>
+                        <h2>Build your robot</h2>
+                        <p>Click a part or drag it onto the workbench.</p>
+                    </div>
+                    <label class="robotics-search"><span class="visually-hidden">Search parts</span><input type="search" data-robotics-search placeholder="Search parts..." autocomplete="off"></label>
+                    <div class="robotics-parts-list" data-robotics-parts></div>
+                    <div class="robotics-catalog-note">Generic pin suggestions only. Check your exact part's datasheet and wiring.</div>
+                </aside>
+                <main class="robotics-center">
+                    <div class="robotics-stage-heading">
+                        <div><span>WORKBENCH</span><strong data-robotics-count>0 components</strong></div>
+                        <span data-robotics-render-label>INTERACTIVE 3D</span>
+                    </div>
+                    <div class="robotics-stage" data-robotics-stage tabindex="0" aria-label="Robot workbench. Drag parts here to add them. Drag the view to rotate and use the mouse wheel to zoom.">
+                        <canvas data-robotics-canvas aria-label="Three-dimensional robot assembly"></canvas>
+                        <canvas data-robotics-low-canvas aria-hidden="true"></canvas>
+                        <div class="robotics-stage-empty" data-robotics-empty><span>＋</span><strong>Your workbench is ready</strong><small>Drag a part here or choose one from the library.</small></div>
+                    </div>
+                    <div class="robotics-sim-controls" aria-label="Simulated hardware inputs">
+                        <label>Servo preview angle <output data-servo-angle>90°</output><input data-servo-slider type="range" min="0" max="180" value="90"></label>
+                        <label>Ultrasonic distance <output data-distance-value>80 cm</output><input data-distance-slider type="range" min="2" max="300" value="80"></label>
+                        <label>IR obstacle <output data-ir-value>Clear</output><input data-ir-slider type="range" min="0" max="1" value="0"></label>
+                        <label>PIR motion <output data-pir-value>No motion</output><input data-pir-slider type="range" min="0" max="1" value="0"></label>
+                        <label>Soil moisture <output data-moisture-value>45%</output><input data-moisture-slider type="range" min="0" max="100" value="45"></label>
+                        <label>Light ADC <output data-light-value>512 / 1023</output><input data-light-slider type="range" min="0" max="1023" value="512"></label>
+                        <label>Potentiometer ADC <output data-potentiometer-value>512 / 1023</output><input data-potentiometer-slider type="range" min="0" max="1023" value="512"></label>
+                        <label>Rain sensor ADC <output data-rain-value>512 / 1023</output><input data-rain-slider type="range" min="0" max="1023" value="512"></label>
+                        <label>Temperature sensor ADC <output data-temperature-value>512 / 1023</output><input data-temperature-slider type="range" min="0" max="1023" value="512"></label>
+                        <label>Push button <output data-button-value>Released</output><input data-button-slider type="range" min="0" max="1" value="0"></label>
+                    </div>
+                    <section class="robotics-sim-monitor" data-sim-monitor aria-label="Simulation variables and console">
+                        <div><strong>Simulation monitor</strong><span data-sim-state>Stopped</span></div>
+                        <p class="robotics-sim-model-note">Inputs are synthetic. ADC values are 10-bit estimates and actuator motion is illustrative; module curves, voltage, timing, and electrical effects are not modeled.</p>
+                        <details open><summary>Variables and outputs</summary><ul data-sim-variables><li>No values yet.</li></ul></details>
+                        <details open><summary>Serial monitor</summary><ol data-sim-console aria-live="polite"><li>Simulation only. No Arduino is connected.</li></ol></details>
+                    </section>
+                    <section class="robotics-connections" aria-labelledby="roboticsConnectionsTitle">
+                        <div class="robotics-connections-heading">
+                            <strong id="roboticsConnectionsTitle">Wires &amp; power</strong>
+                            <span data-robotics-wire-count>0 connections</span>
+                        </div>
+                        <form class="robotics-wire-form" data-robotics-wire-form>
+                            <label><span>From</span><select data-wire-from aria-label="Wire from component"></select></label>
+                            <span aria-hidden="true">→</span>
+                            <label><span>To</span><select data-wire-to aria-label="Wire to component"></select></label>
+                            <label><span>Wire type</span>
+                                <select data-wire-kind aria-label="Wire purpose">
+                                    <option value="signal">Signal</option>
+                                    <option value="power">Power (+)</option>
+                                    <option value="ground">Ground (GND)</option>
+                                </select>
+                            </label>
+                            <button type="submit">Add wire</button>
+                        </form>
+                        <p class="robotics-wire-hint">Diagram connections between parts; they don't guarantee a pin-level circuit. Add a power source from the library and check polarity, voltage, and common ground.</p>
+                        <div class="robotics-wire-legend" aria-label="Wire colors">
+                            <span class="signal-wire">Signal</span><span class="power-wire">Power +</span><span class="ground-wire">GND</span>
+                        </div>
+                        <div class="robotics-wire-list" data-robotics-wire-list aria-label="Wires"></div>
+                    </section>
+                    <section class="robotics-wiring-check" aria-labelledby="roboticsWiringTitle">
+                        <div><strong id="roboticsWiringTitle">Wiring check</strong><span data-robotics-check-count>Checking pins…</span></div>
+                        <ul data-robotics-warnings aria-live="polite"></ul>
+                    </section>
+                    <div class="robotics-placed-parts" data-robotics-placed-parts aria-label="Placed parts and editable pin assignments"></div>
+                    <p class="robotics-status" data-robotics-status role="status" aria-live="polite">Ready. Visual simulation only — no hardware is connected.</p>
+                </main>
+                <aside class="robotics-code-panel" aria-label="Arduino code and block editor">
+                    <div class="robotics-code-heading">
+                        <div class="robotics-code-heading-copy"><span>ARDUINO IDE</span><h2>Code your robot</h2><p>Build with blocks or edit the generated Arduino-style C++ sketch.</p></div>
+                        <button class="robotics-editor-expand" type="button" data-code-fullscreen aria-pressed="false" aria-label="Expand coding editor to full screen" title="Expand coding editor">⛶</button>
+                    </div>
+                    <div class="robotics-code-tabs" role="tablist" aria-label="Programming mode">
+                        <button type="button" role="tab" data-code-tab="blocks" aria-selected="true" aria-controls="roboticsBlockEditor">Blocks</button>
+                        <button type="button" role="tab" data-code-tab="code" aria-selected="false" aria-controls="roboticsCodeEditor">C++ sketch</button>
+                    </div>
+                    <section class="robotics-block-editor" id="roboticsBlockEditor" data-block-editor role="tabpanel" aria-label="Visual block program">
+                        <p class="robotics-block-help">Drag blocks into the script or a dashed body, or use each stack's Add block menu. Build startup and button-event scripts, conditions, loops, variables, and reusable custom blocks.</p>
+                        <div class="robotics-block-palette" aria-label="Available code blocks">
+                            <span>BLOCK PALETTE · DRAG INTO YOUR SCRIPT</span>
+                            <div>
+                                <button type="button" draggable="true" data-add-block="read">Read sensor</button>
+                                <button type="button" draggable="true" data-add-block="if">If / else</button>
+                                <button type="button" draggable="true" data-add-block="repeat">Repeat N times</button>
+                                <button type="button" draggable="true" data-add-block="repeatUntil">Repeat until</button>
+                                <button type="button" draggable="true" data-add-block="waitUntil">Wait until</button>
+                                <button type="button" draggable="true" data-add-block="whenButtonPressed">When button pressed</button>
+                                <button type="button" draggable="true" data-add-block="whenStarted">When Arduino starts</button>
+                                <button type="button" draggable="true" data-add-block="defineFunction">Define custom block</button>
+                                <button type="button" draggable="true" data-add-block="callFunction">Run custom block</button>
+                                <button type="button" draggable="true" data-add-block="servo">Set servo</button>
+                                <button type="button" draggable="true" data-add-block="led">Set LED</button>
+                                <button type="button" draggable="true" data-add-block="buzzer">Set buzzer</button>
+                                <button type="button" draggable="true" data-add-block="motor">Set motor</button>
+                                <button type="button" draggable="true" data-add-block="wait">Wait</button>
+                                <button type="button" draggable="true" data-add-block="print">Print text</button>
+                                <button type="button" draggable="true" data-add-block="setVariable">Set variable</button>
+                                <button type="button" draggable="true" data-add-block="changeVariable">Change variable</button>
+                            </div>
+                        </div>
+                        <div class="robotics-script-workspace" data-block-workspace aria-label="Scratch-style Arduino script workspace">
+                            <div class="robotics-hat-block"><span class="robotics-block-icon">⚑</span> when Arduino starts</div>
+                            <div class="robotics-loop-block">
+                                <div class="robotics-loop-label">repeat forever</div>
+                                <div class="robotics-block-stack" data-block-stack aria-label="Snap blocks here to build the repeated script"></div>
+                                <div class="robotics-loop-cap" aria-hidden="true"></div>
+                            </div>
+                        </div>
+                        <p class="robotics-block-note">Run simulation executes the supported block program against these simulated inputs only. It does not execute generated C++ or control real hardware.</p>
+                    </section>
+                    <div class="robotics-code-view" id="roboticsCodeEditor" data-code-view role="tabpanel" aria-label="Generated Arduino C++ code" hidden>
+                    <textarea data-robotics-code aria-label="Arduino C++ sketch" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>
+                    <div class="robotics-code-actions">
+                        <button type="button" data-robotics-generate>Generate from blocks</button>
+                        <button type="button" data-robotics-download>Download .ino</button>
+                    </div>
+                    </div>
+                    <p class="robotics-safety-note"><strong>Simulation limits</strong> The block interpreter runs a safe JavaScript simulation against artificial sensor values; it does not compile the generated C++, connect to an Arduino, simulate voltage/current, or validate a real circuit. Generated sketches use built-in Arduino APIs without extra libraries; the 3D preview uses existing MIT-licensed Three.js. Check board/module datasheets, compile with the intended Arduino toolchain, and verify wiring and power before connecting hardware.</p>
+                </aside>
+            </div>
+        </section>
+        <section class="new-design" id="newDesign" aria-labelledby="newDesignTitle" hidden>
+            <button class="studio-back-button" type="button" data-close-design aria-label="Close new design">&times;</button>
+            <div class="new-design-content">
+                <span class="studio-kicker">A FRESH CANVAS</span>
+                <div class="new-design-mark" aria-hidden="true">
+                    <svg viewBox="0 0 48 48"><path d="m10 12 9-5h19v27l-9 6H10V12Z"/><path d="M10 12h19v28M29 12l9-5M14 16v17m11-17v7m-11 10h11"/><path d="m14 30 7-4 7 4-7 4-7-4Zm7-4v5"/><path d="M19 15h7m-3 0v7l-2 3"/></svg>
+                    <span>+</span>
+                </div>
+                <h1 id="newDesignTitle">New project</h1>
+                <p class="new-design-intro">Give your next idea a name and a little room to take shape.</p>
+                <form class="project-form" data-project-form>
+                    <label for="projectName">Project name</label>
+                    <input id="projectName" name="name" type="text" value="New Design" maxlength="80" required>
+                    <label for="projectDescription">Description <span>OPTIONAL</span></label>
+                    <textarea id="projectDescription" name="description" rows="3" maxlength="500" placeholder="What are you making?"></textarea>
+                    <button class="studio-primary-button" type="submit">Start creating <span aria-hidden="true">→</span></button>
+                    <p class="studio-hint">Your design stays on this device until you export it.</p>
+                </form>
+            </div>
+        </section>
+        <section class="new-design canvas-setup" id="canvasSetup" aria-labelledby="canvasSetupTitle" hidden>
+            <button class="studio-back-button" type="button" data-close-canvas-setup aria-label="Close canvas setup">&times;</button>
+            <div class="new-design-content">
+                <span class="studio-kicker">STUDIO / 02</span>
+                <div class="new-design-mark canvas-setup-mark" aria-hidden="true">
+                    <svg viewBox="0 0 48 48"><path d="M8 8h32v32H8zM8 18h32M18 8v32M29 8v32M8 29h32"/></svg>
+                </div>
+                <h1 id="canvasSetupTitle">A fresh canvas</h1>
+                <p class="new-design-intro">A quiet, precise space for sketches, layouts, illustrations and ideas.</p>
+                <form class="project-form" data-canvas-project-form>
+                    <label for="canvasProjectName">Canvas name <span>OPTIONAL</span></label>
+                    <input id="canvasProjectName" name="name" type="text" maxlength="80" placeholder="Untitled canvas">
+                    <label for="canvasProjectDescription">What are you making? <span>OPTIONAL</span></label>
+                    <textarea id="canvasProjectDescription" name="description" rows="3" maxlength="500" placeholder="A floor plan, a painting, a moodboard..."></textarea>
+                    <button class="studio-primary-button" type="submit">Continue to canvas <span aria-hidden="true">→</span></button>
+                    <button class="canvas-resume-button" type="button" data-canvas-resume hidden>Resume saved canvas</button>
+                    <p class="canvas-resume-status" data-canvas-resume-status role="status" aria-live="polite"></p>
+                    <p class="studio-hint">Both fields are optional. Your work saves on this device.</p>
+                </form>
+            </div>
+        </section>
+        <section class="new-design pcb-setup" id="pcbSetup" aria-labelledby="pcbSetupTitle" hidden>
+            <button class="studio-back-button" type="button" data-close-pcb aria-label="Close PCB studio">&times;</button>
+            <div class="new-design-content pcb-setup-card">
+                <span class="studio-kicker">STUDIO / 03 · CIRCUIT DESIGN</span>
+                <div class="new-design-mark pcb-setup-mark" aria-hidden="true">
+                    <svg viewBox="0 0 48 48"><rect x="8" y="8" width="32" height="32" rx="5"/><path d="M16 16h8v8h-8zM28 16h5M28 21h5M16 29h5M16 34h5M29 29h4M29 34h4M4 16h4M4 24h4M4 32h4M40 16h4M40 24h4M40 32h4M16 4v4M24 4v4M32 4v4M16 40v4M24 40v4M32 40v4"/></svg>
+                </div>
+                <h1 id="pcbSetupTitle">New PCB project</h1>
+                <p class="new-design-intro">Name your idea and choose a board finish. You can resize the board and place components next.</p>
+                <form class="project-form pcb-project-form" data-pcb-project-form>
+                    <label for="pcbProjectName">Project name</label>
+                    <input id="pcbProjectName" name="name" type="text" maxlength="80" placeholder="e.g. Sensor node" required>
+                    <label for="pcbProjectTheme">Board theme</label>
+                    <select id="pcbProjectTheme" name="theme" required>
+                        <option value="" selected disabled>Choose a board finish</option>
+                        <option value="forest">Forest green · classic</option>
+                        <option value="ocean">Ocean blue · cool</option>
+                        <option value="midnight">Midnight · dark</option>
+                        <option value="amber">Amber · warm</option>
+                    </select>
+                    <label for="pcbRoboticsTemplate">Robotics template <span>OPTIONAL</span></label>
+                    <select id="pcbRoboticsTemplate" name="roboticsTemplate">
+                        <option value="custom">Start with a custom board</option>
+                        <option value="esp32-development">ESP32 development board</option>
+                        <option value="arduino-controller">Arduino controller board</option>
+                        <option value="servo-controller">Servo controller board</option>
+                        <option value="dc-motor-driver">DC motor driver board</option>
+                        <option value="sensor-interface">Sensor interface board</option>
+                        <option value="ultrasonic-sensor">Ultrasonic sensor board</option>
+                        <option value="power-distribution">Power distribution board</option>
+                        <option value="battery-interface">Battery management interface</option>
+                        <option value="robot-controller">Robot controller board</option>
+                        <option value="communication-interface">Communication interface board</option>
+                    </select>
+                    <button class="studio-primary-button" type="submit">Build my board <span aria-hidden="true">→</span></button>
+                    <button class="canvas-resume-button" type="button" data-pcb-resume hidden>Resume saved board</button>
+                    <p class="canvas-resume-status" data-pcb-setup-status role="status" aria-live="polite"></p>
+                    <p class="studio-hint">Your board saves automatically on this device. No design libraries required.</p>
+                </form>
+            </div>
+        </section>
+        <section class="pcb-editor" id="pcbEditor" aria-label="PCB building studio" hidden>
+            <header class="pcb-topbar">
+                <div class="pcb-brand">
+                    <button class="canvas-home-button" type="button" data-close-pcb aria-label="Close PCB studio">‹</button>
+                    <span class="pcb-brand-mark" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8h4v4H8zM14 8h2M14 11h2M8 14h2M8 17h2M14 14h2M14 17h2M2 8h2M2 12h2M2 16h2M20 8h2M20 12h2M20 16h2M8 2v2M12 2v2M16 2v2M8 20v2M12 20v2M16 20v2"/></svg>
+                    </span>
+                    <div class="pcb-project-title">
+                        <strong data-pcb-project-name>Untitled board</strong>
+                        <span>PCB STUDIO <i></i> <span data-pcb-save-state role="status" aria-live="polite">ALL CHANGES SAVED</span></span>
+                    </div>
+                </div>
+                <div class="pcb-top-actions">
+                    <button class="canvas-action-button" type="button" data-pcb-schematic-toggle aria-pressed="false">Schematic</button>
+                    <button class="canvas-action-button" type="button" data-pcb-layout-toggle aria-pressed="false">2D Layout</button>
+                    <button class="canvas-action-button" type="button" data-pcb-open>Projects</button>
+                    <button class="canvas-action-button" type="button" data-pcb-manufacture title="Prepare manufacturing files">Manufacture</button>
+                    <button class="canvas-action-button pcb-history-button" type="button" data-pcb-undo title="Undo (Ctrl+Z)" aria-label="Undo" disabled>↶</button>
+                    <button class="canvas-action-button pcb-history-button" type="button" data-pcb-redo title="Redo (Ctrl+Y)" aria-label="Redo" disabled>↷</button>
+                    <span class="pcb-view-badge" data-pcb-mode-label><span aria-hidden="true">◈</span> 3D VIEW</span>
+                    <button class="canvas-action-button" type="button" data-pcb-save>Save</button>
+                </div>
+            </header>
+            <main class="pcb-workspace">
+                <aside class="pcb-catalog" aria-label="PCB component library">
+                    <div class="pcb-panel-heading">
+                        <div><span class="pcb-panel-kicker">BUILD YOUR CIRCUIT</span><h2>Components</h2></div>
+                        <div class="pcb-catalog-heading-actions">
+                            <button class="pcb-add-custom" type="button" data-pcb-create-component title="Create custom component" aria-label="Create custom component">+</button>
+                            <span class="pcb-component-count" data-pcb-component-count>0</span>
+                        </div>
+                    </div>
+                    <p class="pcb-panel-copy">Choose a part to place it on your board.</p>
+                    <label class="pcb-library-search"><span class="visually-hidden">Search components</span><input data-pcb-search type="search" placeholder="Search components..." autocomplete="off"></label>
+                    <label class="pcb-library-category"><span class="visually-hidden">Filter by category</span><select data-pcb-category><option value="all">All categories</option></select></label>
+                    <div class="pcb-component-list" data-pcb-component-list aria-label="Available components"></div>
+                    <div class="pcb-library-detail" data-pcb-library-detail aria-live="polite">
+                        <div class="pcb-library-detail-empty">Select a component to inspect its specifications.</div>
+                    </div>
+                    <div class="pcb-catalog-footer"><span class="pcb-live-dot"></span> BUILT-IN + CUSTOM <span>·</span> NO LIBRARIES</div>
+                </aside>
+                <section class="pcb-viewport" aria-label="Board preview">
+                    <div class="pcb-viewport-heading">
+                        <div><span class="pcb-panel-kicker">BOARD VIEW</span><strong data-pcb-board-dimensions>90 × 60 mm</strong></div>
+                        <div class="pcb-heading-actions">
+                            <span class="pcb-drag-hint" data-pcb-view-hint>Drag board to rotate · drag parts to arrange</span>
+                            <div class="pcb-view-presets" role="group" aria-label="Board side">
+                                <button type="button" data-pcb-view="top" aria-pressed="true">Top</button>
+                                <button type="button" data-pcb-view="side" aria-pressed="false">Side</button>
+                                <button type="button" data-pcb-view="bottom" aria-pressed="false">Bottom</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pcb-board-stage" tabindex="0" aria-label="Interactive board preview. Drag to rotate; use plus or minus to zoom.">
+                        <div class="pcb-board-wrap">
+                            <svg class="pcb-board-svg" data-pcb-board role="img" aria-label="Editable three-dimensional PCB board"></svg>
+                        </div>
+                        <div class="pcb-empty-hint" data-pcb-empty-hint><span>＋</span><strong>Your board is ready</strong><small>Add a component from the panel to start building.</small></div>
+                        <div class="pcb-stage-tools" role="toolbar" aria-label="Board view controls">
+                            <div class="pcb-mode-switch" role="group" aria-label="Visual mode">
+                                <button type="button" data-pcb-mode="3d" aria-pressed="true">3D</button>
+                                <button type="button" data-pcb-mode="color" aria-pressed="false">2D colour</button>
+                                <button type="button" data-pcb-mode="mono" aria-pressed="false">Black &amp; white</button>
+                            </div>
+                            <div class="pcb-zoom-controls" role="group" aria-label="Zoom controls">
+                                <button type="button" data-pcb-zoom="out" aria-label="Zoom out" title="Zoom out">−</button>
+                                <span data-pcb-zoom-label>100%</span>
+                                <button type="button" data-pcb-zoom="in" aria-label="Zoom in" title="Zoom in">+</button>
+                                <button type="button" data-pcb-zoom="reset">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="pcb-statusbar">
+                        <span><i></i> GRID 2.54 MM</span>
+                        <span data-pcb-placement-status>Click a component to add it</span>
+                        <span class="pcb-status-spacer"></span>
+                        <span>BOARD <strong data-pcb-board-size>90 × 60 × 1.6 mm</strong></span>
+                    </footer>
+                </section>
+                <section class="pcb-schematic-workspace" data-pcb-schematic hidden aria-label="Electronic schematic editor">
+                    <header class="pcb-schematic-toolbar">
+                        <div class="pcb-schematic-sheet-controls">
+                            <span class="pcb-panel-kicker">SCHEMATIC SHEET</span>
+                            <select data-pcb-sheet-select aria-label="Schematic sheet"></select>
+                            <button type="button" data-pcb-sheet-add aria-label="Add schematic sheet" title="Add sheet">+</button>
+                        </div>
+                        <div class="pcb-schematic-tools" role="toolbar" aria-label="Schematic tools">
+                            <button type="button" data-schematic-tool="select" aria-pressed="true">Select</button>
+                            <button type="button" data-schematic-tool="wire" aria-pressed="false">Wire</button>
+                            <button type="button" data-schematic-tool="label" aria-pressed="false">Net label</button>
+                            <label class="pcb-schematic-label-field" data-schematic-label-field hidden>Net<input data-schematic-label-input maxlength="32" placeholder="VCC"></label>
+                            <button type="button" data-schematic-rotate disabled>Rotate 90°</button>
+                        </div>
+                        <div class="pcb-schematic-actions">
+                            <button type="button" data-schematic-zoom="out" aria-label="Zoom out">−</button>
+                            <span data-schematic-zoom-label>100%</span>
+                            <button type="button" data-schematic-zoom="in" aria-label="Zoom in">+</button>
+                            <button type="button" data-schematic-zoom="fit">Fit</button>
+                            <button type="button" data-schematic-netlist>Netlist</button>
+                        </div>
+                    </header>
+                    <div class="pcb-schematic-canvas" data-schematic-stage tabindex="0" aria-label="Schematic canvas. Select components, connect pins, zoom or pan.">
+                        <svg class="pcb-schematic-svg" data-schematic-svg role="application" aria-label="Interactive electronic schematic">
+                            <defs><pattern id="schematic-grid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="#cbd8cf"/></pattern></defs>
+                            <rect data-schematic-grid-rect x="-10000" y="-10000" width="20000" height="20000" fill="url(#schematic-grid)"></rect>
+                            <g data-schematic-wires></g>
+                            <g data-schematic-labels></g>
+                            <g data-schematic-components></g>
+                            <g data-schematic-interaction></g>
+                        </svg>
+                        <div class="pcb-schematic-empty" data-schematic-empty>
+                            <strong>Start your circuit</strong>
+                            <span>Add a component, then select Wire and connect its pins.</span>
+                        </div>
+                    </div>
+                    <footer class="pcb-schematic-statusbar">
+                        <span><i></i> GRID 20 PX</span>
+                        <span data-schematic-status>Select a component in the library or start wiring.</span>
+                        <span class="pcb-status-spacer"></span>
+                        <span data-schematic-net-summary>0 nets · 0 connections</span>
+                    </footer>
+                </section>
+                <section class="pcb-layout-workspace" data-pcb-layout hidden aria-label="2D PCB layout editor">
+                    <header class="pcb-layout-toolbar">
+                        <div class="pcb-layout-tools" role="toolbar" aria-label="PCB layout tools">
+                            <button type="button" data-layout-tool="select" aria-pressed="true">Select</button>
+                            <button type="button" data-layout-tool="track" aria-pressed="false">Route</button>
+                            <button type="button" data-layout-tool="via" aria-pressed="false">Via</button>
+                            <button type="button" data-layout-tool="zone" aria-pressed="false">Copper zone</button>
+                            <button type="button" data-layout-tool="outline" aria-pressed="false">Board outline</button>
+                            <button type="button" data-layout-tool="measure" aria-pressed="false">Measure</button>
+                            <label>Layer<select data-layout-active-layer aria-label="Active copper layer"></select></label>
+                            <label>Net<select data-layout-active-net aria-label="Active electrical net"><option value="">Unassigned</option></select></label>
+                            <label>Track<select data-layout-track-width aria-label="Track width"><option value="0.2">0.20 mm</option><option value="0.3" selected>0.30 mm</option><option value="0.5">0.50 mm</option><option value="0.8">0.80 mm</option><option value="1">1.00 mm</option></select></label>
+                            <label>Grid<select data-layout-grid aria-label="Layout grid"><option value="0.25">0.25 mm</option><option value="0.5">0.50 mm</option><option value="1" selected>1 mm</option><option value="2.54">2.54 mm</option></select></label>
+                        </div>
+                        <div class="pcb-layout-actions">
+                            <button type="button" data-layout-align="grid">Align to grid</button>
+                            <button type="button" data-layout-align="horizontal">Align H</button>
+                            <button type="button" data-layout-align="vertical">Align V</button>
+                            <button type="button" data-layout-sync>Sync schematic</button>
+                            <button type="button" data-layout-check>Check connections</button>
+                            <button type="button" data-layout-suggest>Suggest routes</button>
+                            <button type="button" data-layout-performance aria-pressed="false">Low-end mode</button>
+                            <button type="button" data-layout-zoom="out" aria-label="Zoom out">−</button>
+                            <span data-layout-zoom-label>100%</span>
+                            <button type="button" data-layout-zoom="in" aria-label="Zoom in">+</button>
+                            <button type="button" data-layout-zoom="fit">Fit</button>
+                        </div>
+                    </header>
+                    <div class="pcb-layout-canvas" data-layout-stage tabindex="0" aria-label="PCB layout canvas. Select components, route copper, zoom or pan.">
+                        <svg class="pcb-layout-svg" data-layout-svg role="application" aria-label="Physical PCB footprint layout">
+                            <defs><pattern id="pcb-layout-grid" width="1" height="1" patternUnits="userSpaceOnUse"><circle cx=".5" cy=".5" r=".055" fill="#6f8c7a"/></pattern></defs>
+                            <g data-layout-render></g>
+                            <g data-layout-interaction></g>
+                        </svg>
+                        <div class="pcb-layout-empty" data-layout-empty><strong>Layout is ready</strong><span>Sync your schematic to place footprints, or add components from the library.</span></div>
+                    </div>
+                    <footer class="pcb-layout-statusbar">
+                        <span><i></i> GRID <strong data-layout-grid-status>1 mm</strong></span>
+                        <span data-layout-status>Sync the schematic to create physical footprints and nets.</span>
+                        <span class="pcb-status-spacer"></span>
+                        <span data-layout-summary>0 footprints · 0 tracks · 0 vias</span>
+                    </footer>
+                </section>
+                <aside class="pcb-inspector" aria-label="Board and component properties">
+                    <div class="pcb-panel-heading">
+                        <div><span class="pcb-panel-kicker">SETTINGS</span><h2>Inspector</h2></div>
+                    </div>
+                    <section class="pcb-robotics-panel" aria-label="Robotics electronics planner">
+                        <div class="pcb-robotics-heading">
+                            <div><span class="pcb-panel-kicker">ROBOT ELECTRONICS</span><h3>Robotics planner</h3></div>
+                            <span class="pcb-robotics-badge">AQUA ROBOTICS</span>
+                        </div>
+                        <label class="pcb-theme-select"><span>Board template</span><select data-robotics-template></select></label>
+                        <p class="pcb-robotics-description" data-robotics-description>Choose a robotics template to plan controllers, signals, and power rails.</p>
+                        <div class="pcb-robotics-actions">
+                            <button type="button" data-robotics-apply-template>Apply template</button>
+                            <button type="button" data-robotics-add-parts>Add recommended parts</button>
+                            <button type="button" data-robotics-export>Export simulator handoff</button>
+                        </div>
+                        <p class="pcb-robotics-status" data-robotics-status role="status" aria-live="polite"></p>
+                        <div class="pcb-robotics-recommended" data-robotics-recommended></div>
+                        <section class="pcb-robotics-section">
+                            <h4>GPIO &amp; signal map</h4>
+                            <p class="pcb-field-note">Assignments are planning metadata; they do not automatically create schematic wires.</p>
+                            <div class="pcb-robotics-pin-map" data-robotics-pin-map></div>
+                        </section>
+                        <section class="pcb-robotics-section">
+                            <h4>Connection plan</h4>
+                            <div class="pcb-robotics-connections" data-robotics-connections></div>
+                            <div class="pcb-robotics-custom-connection">
+                                <label><span class="visually-hidden">Custom signal name</span><input data-robotics-custom-name type="text" maxlength="40" placeholder="Custom signal name"></label>
+                                <label><span class="visually-hidden">Custom signal group</span><select data-robotics-custom-group><option>Sensor interface</option><option>Servo planning</option><option>Motor planning</option><option>Power distribution</option><option>Communication</option></select></label>
+                                <button type="button" data-robotics-add-connection>Add signal</button>
+                            </div>
+                        </section>
+                        <section class="pcb-robotics-section">
+                            <h4>Power rails · volts</h4>
+                            <div class="pcb-robotics-rails" data-robotics-rails></div>
+                        </section>
+                        <p class="pcb-robotics-handoff">Simulator handoff schema: <code>aqua.robotics-electronics/v1</code>. No simulator connection is assumed; board checks are not a safety certification.</p>
+                    </section>
+                    <div class="pcb-schematic-inspector" data-pcb-schematic-inspector hidden>
+                        <section class="pcb-inspector-section" data-schematic-selected-panel hidden>
+                            <h3>Schematic component</h3>
+                            <strong class="pcb-selected-name" data-schematic-selected-name>Part</strong>
+                            <label class="pcb-instance-field">Reference<input data-schematic-reference maxlength="8"></label>
+                            <label class="pcb-instance-field">Value<input data-schematic-value maxlength="32"></label>
+                            <div class="pcb-instance-electrical" data-schematic-component-specs></div>
+                            <div class="pcb-instance-pins" data-schematic-component-pins></div>
+                            <div class="pcb-selected-actions">
+                                <button type="button" data-schematic-delete>Delete</button>
+                                <button type="button" data-schematic-deselect>Deselect</button>
+                            </div>
+                        </section>
+                        <section class="pcb-inspector-section" data-schematic-pin-panel hidden>
+                            <h3>Pin identification</h3>
+                            <strong class="pcb-selected-name" data-schematic-pin-name></strong>
+                            <span class="pcb-instance-pins" data-schematic-pin-details></span>
+                            <button class="canvas-action-button" type="button" data-schematic-wire-from-pin>Start wire here</button>
+                        </section>
+                        <p class="pcb-inspector-tip" data-schematic-inspector-tip>Select a schematic symbol or pin to inspect it. Shift-click symbols to select multiple.</p>
+                        <section class="pcb-inspector-section pcb-validation-panel" aria-label="Design validation">
+                            <div class="pcb-validation-heading"><h3>Design validation</h3><button type="button" data-run-pcb-validation>Run checks</button></div>
+                            <p class="pcb-validation-status" data-pcb-validation-status role="status" aria-live="polite">Checks have not been run yet.</p>
+                            <div class="pcb-validation-summary" data-pcb-validation-summary hidden></div>
+                            <ol class="pcb-validation-issues" data-pcb-validation-issues></ol>
+                            <p class="pcb-validation-note">Rule checks use Aqua's basic internal rules. Estimates are identified separately. Trace ampacity, thermal performance, electrical safety, and manufacturer-specific fabrication limits are not fully modeled; passing checks is not a safety or manufacturing guarantee.</p>
+                        </section>
+                    </div>
+                    <div class="pcb-layout-inspector" data-pcb-layout-inspector hidden>
+                        <section class="pcb-inspector-section">
+                            <h3>Copper layers</h3>
+                            <div class="pcb-layout-layer-list" data-layout-layer-list></div>
+                            <button class="canvas-action-button" type="button" data-layout-add-layer>Add inner copper layer</button>
+                        </section>
+                        <section class="pcb-inspector-section" data-layout-selection hidden>
+                            <h3>Selected footprint</h3>
+                            <strong class="pcb-selected-name" data-layout-selected-name></strong>
+                            <span class="pcb-selected-reference" data-layout-selected-reference></span>
+                            <div class="pcb-instance-pins" data-layout-selected-pads></div>
+                            <div class="pcb-selected-actions">
+                                <button type="button" data-layout-rotate>Rotate 90°</button>
+                                <button type="button" data-layout-delete>Remove</button>
+                            </div>
+                        </section>
+                        <section class="pcb-inspector-section" data-layout-track-inspector hidden>
+                            <h3>Selected copper track</h3>
+                            <strong class="pcb-selected-name" data-layout-track-name></strong>
+                            <label class="pcb-theme-select"><span>Width (mm)</span><input data-layout-selected-track-width type="number" min="0.1" max="5" step="0.05"></label>
+                            <label class="pcb-theme-select"><span>Copper layer</span><select data-layout-selected-track-layer></select></label>
+                            <p class="pcb-field-note">Drag a vertex on the canvas to reshape this route.</p>
+                            <button class="canvas-action-button" type="button" data-layout-track-delete>Delete track</button>
+                        </section>
+                        <section class="pcb-inspector-section" data-layout-net-section>
+                            <h3>Electrical nets</h3>
+                            <span class="pcb-instance-pins" data-layout-net-summary>No schematic nets are synchronized.</span>
+                            <p class="pcb-layout-connectivity" data-layout-connectivity aria-live="polite">Run a connectivity check after syncing your schematic.</p>
+                            <ol class="pcb-layout-suggestions" data-layout-suggestions></ol>
+                        </section>
+                        <section class="pcb-inspector-section pcb-validation-panel" aria-label="Design validation">
+                            <div class="pcb-validation-heading"><h3>Design validation</h3><button type="button" data-run-pcb-validation>Run checks</button></div>
+                            <p class="pcb-validation-status" data-pcb-validation-status role="status" aria-live="polite">Checks have not been run yet.</p>
+                            <div class="pcb-validation-summary" data-pcb-validation-summary hidden></div>
+                            <ol class="pcb-validation-issues" data-pcb-validation-issues></ol>
+                            <p class="pcb-validation-note">Rule checks use Aqua's basic internal rules. Estimates are identified separately. Trace ampacity, thermal performance, electrical safety, and manufacturer-specific fabrication limits are not fully modeled; passing checks is not a safety or manufacturing guarantee.</p>
+                        </section>
+                    </div>
+                    <section class="pcb-inspector-section">
+                        <h3>Project</h3>
+                        <label class="pcb-theme-select"><span>Name</span><input data-pcb-project-name-input type="text" maxlength="80" required></label>
+                    </section>
+                    <section class="pcb-inspector-section">
+                        <h3>Board size <span>MM</span></h3>
+                        <div class="pcb-size-fields">
+                            <label>Width<input data-pcb-dimension="width" type="number" min="30" max="200" step="1" value="90"></label>
+                            <label>Height<input data-pcb-dimension="height" type="number" min="25" max="160" step="1" value="60"></label>
+                            <label>Thickness<input data-pcb-dimension="thickness" type="number" min="0.8" max="3.2" step="0.1" value="1.6"></label>
+                        </div>
+                        <p class="pcb-field-note">Width 30–200 mm · Height 25–160 mm</p>
+                    </section>
+                    <section class="pcb-inspector-section">
+                        <h3>Board finish <span>COLOR</span></h3>
+                        <label class="pcb-theme-select"><span>Theme</span><select data-pcb-theme><option value="forest">Forest green</option><option value="ocean">Ocean blue</option><option value="midnight">Midnight</option><option value="amber">Amber</option></select></label>
+                    </section>
+                    <section class="pcb-inspector-section pcb-selected-panel" data-pcb-selected-panel hidden>
+                        <h3>Selected part</h3>
+                        <strong class="pcb-selected-name" data-pcb-selected-name>Part</strong>
+                        <span class="pcb-selected-reference" data-pcb-selected-reference>U1</span>
+                        <label class="pcb-instance-field">Reference<input data-pcb-instance-reference type="text" maxlength="8"></label>
+                        <label class="pcb-instance-field">Value<input data-pcb-instance-value type="text" maxlength="32"></label>
+                        <div class="pcb-instance-electrical" data-pcb-instance-electrical></div>
+                        <div class="pcb-instance-pins" data-pcb-instance-pins></div>
+                        <div class="pcb-position-fields">
+                            <label>X<input data-pcb-position="x" type="number" step="1"></label>
+                            <label>Y<input data-pcb-position="y" type="number" step="1"></label>
+                        </div>
+                        <div class="pcb-selected-actions">
+                            <button type="button" data-pcb-rotate>Rotate 90°</button>
+                            <button type="button" data-pcb-delete>Remove</button>
+                        </div>
+                    </section>
+                    <p class="pcb-inspector-tip" data-pcb-inspector-tip>Select a component to edit its position, rotate it or remove it.</p>
+                    <section class="pcb-inspector-section pcb-validation-panel" aria-label="Design validation">
+                        <div class="pcb-validation-heading"><h3>Design validation</h3><button type="button" data-run-pcb-validation>Run checks</button></div>
+                        <p class="pcb-validation-status" data-pcb-validation-status role="status" aria-live="polite">Checks have not been run yet.</p>
+                        <div class="pcb-validation-summary" data-pcb-validation-summary hidden></div>
+                        <ol class="pcb-validation-issues" data-pcb-validation-issues></ol>
+                        <p class="pcb-validation-note">Rule checks use Aqua's basic internal rules. Estimates are identified separately. Trace ampacity, thermal performance, electrical safety, and manufacturer-specific fabrication limits are not fully modeled; passing checks is not a safety or manufacturing guarantee.</p>
+                    </section>
+                </aside>
+            </main>
+        </section>
+        <dialog class="pcb-component-dialog" data-pcb-component-dialog aria-labelledby="pcbComponentDialogTitle">
+            <form data-pcb-component-form>
+                <div class="pcb-project-dialog-heading">
+                    <div><span class="pcb-panel-kicker">PERSONAL COMPONENT LIBRARY</span><h2 id="pcbComponentDialogTitle">Create component</h2></div>
+                    <button class="pcb-dialog-close" type="button" data-pcb-close-component aria-label="Close component editor">×</button>
+                </div>
+                <div class="pcb-component-form-grid">
+                    <label>Component name<input name="name" maxlength="48" required placeholder="e.g. Custom sensor"></label>
+                    <label>Category<select name="category" required data-pcb-custom-category></select></label>
+                    <label>Reference prefix<input name="prefix" maxlength="3" required placeholder="U"></label>
+                    <label>Number of pins<input name="pins" type="number" min="1" max="40" value="2" required></label>
+                    <label>Footprint width (mm)<input name="width" type="number" min="2" max="50" step="0.5" value="10" required></label>
+                    <label>Footprint height (mm)<input name="height" type="number" min="2" max="50" step="0.5" value="8" required></label>
+                    <label>Electrical specifications<input name="specs" maxlength="120" placeholder="e.g. 3.3 V · 20 mA"></label>
+                    <label>Pin names, comma separated<input name="pinNames" maxlength="300" placeholder="VCC, GND, OUT"></label>
+                    <label class="pcb-component-form-wide">Description<input name="description" maxlength="140" placeholder="What does this component do?"></label>
+                </div>
+                <p class="pcb-project-dialog-status" data-pcb-component-status role="status" aria-live="polite"></p>
+                <div class="pcb-component-form-actions">
+                    <button class="canvas-action-button" type="button" data-pcb-cancel-component>Cancel</button>
+                    <button class="studio-primary-button" type="submit">Save component</button>
+                </div>
+            </form>
+        </dialog>
+        <dialog class="pcb-netlist-dialog" data-pcb-netlist-dialog aria-labelledby="pcbNetlistTitle">
+            <div class="pcb-project-dialog-heading">
+                <div><span class="pcb-panel-kicker">ELECTRICAL CONNECTIVITY</span><h2 id="pcbNetlistTitle">Generated netlist</h2></div>
+                <button class="pcb-dialog-close" type="button" data-close-netlist aria-label="Close netlist">×</button>
+            </div>
+            <p class="pcb-netlist-note">Connections are grouped by wires, shared pin points, net labels, power, and ground.</p>
+            <pre data-pcb-netlist-output></pre>
+            <div class="pcb-component-form-actions">
+                <button class="canvas-action-button" type="button" data-copy-netlist>Copy</button>
+                <button class="studio-primary-button" type="button" data-download-netlist>Download netlist</button>
+            </div>
+        </dialog>
+        <dialog class="pcb-project-dialog" data-pcb-project-dialog aria-labelledby="pcbProjectDialogTitle">
+            <div class="pcb-project-dialog-heading">
+                <div><span class="pcb-panel-kicker">PCB STUDIO</span><h2 id="pcbProjectDialogTitle">Your projects</h2></div>
+                <button class="pcb-dialog-close" type="button" data-pcb-close-projects aria-label="Close projects">×</button>
+            </div>
+            <div class="pcb-project-dialog-actions">
+                <button class="studio-primary-button" type="button" data-pcb-new-project>New project <span aria-hidden="true">→</span></button>
+                <button class="canvas-action-button" type="button" data-pcb-import>Import project</button>
+                <input data-pcb-project-file type="file" accept="application/json,.json" hidden>
+            </div>
+            <p class="pcb-project-dialog-status" data-pcb-project-dialog-status role="status" aria-live="polite"></p>
+            <div class="pcb-project-list" data-pcb-project-list></div>
+        </dialog>
+        <dialog class="pcb-manufacturing-dialog" data-pcb-manufacturing-dialog aria-labelledby="pcbManufacturingTitle">
+            <div class="pcb-project-dialog-heading">
+                <div><span class="pcb-panel-kicker">FABRICATION PREPARATION</span><h2 id="pcbManufacturingTitle">Manufacturing export</h2></div>
+                <button class="pcb-dialog-close" type="button" data-pcb-manufacturing-close aria-label="Close manufacturing export">×</button>
+            </div>
+            <p class="pcb-manufacturing-intro">Prepare structured files from this project's PCB layout. Review the warnings and verify every output with your fabricator before ordering.</p>
+            <div class="pcb-manufacturing-grid">
+                <section class="pcb-manufacturing-section">
+                    <h3>Export layers</h3>
+                    <div class="pcb-manufacturing-layers" data-pcb-manufacturing-layers></div>
+                    <p class="pcb-field-note">Copper and board outline Gerbers are generated. Unsupported: silkscreen, solder mask, filled zones/thermal relief, plated slots, panelization, impedance control, and manufacturer-specific process rules.</p>
+                </section>
+                <section class="pcb-manufacturing-section">
+                    <h3>Drill configuration · mm</h3>
+                    <div class="pcb-manufacturing-drills">
+                        <label>Through-hole drill<input data-mfg-th-drill type="number" min="0.1" max="10" step="0.05" value="0.8"></label>
+                        <label>Via drill<input data-mfg-via-drill type="number" min="0.1" max="10" step="0.05" value="0.3"></label>
+                        <label>Through-hole land diameter<input data-mfg-th-land type="number" min="0.1" max="10" step="0.05" value="1.8"></label>
+                        <label>SMD land width<input data-mfg-smd-width type="number" min="0.1" max="10" step="0.05" value="1.6"></label>
+                        <label>SMD land height<input data-mfg-smd-height type="number" min="0.1" max="10" step="0.05" value="0.9"></label>
+                    </div>
+                    <p class="pcb-field-note">Drill/land sizes are export settings because the current library does not carry per-pad fabrication dimensions.</p>
+                </section>
+                <section class="pcb-manufacturing-section pcb-manufacturing-output-section">
+                    <h3>File set</h3>
+                    <div class="pcb-manufacturing-output-list">
+                        <label><input type="checkbox" data-mfg-output="gerber" checked> Gerber copper and outline</label>
+                        <label><input type="checkbox" data-mfg-output="drill" checked> Excellon drills</label>
+                        <label><input type="checkbox" data-mfg-output="bom" checked> Bill of materials (CSV)</label>
+                        <label><input type="checkbox" data-mfg-output="pickPlace" checked> Pick-and-place (SMD CSV)</label>
+                        <label><input type="checkbox" data-mfg-output="netlist" checked> Synchronized PCB netlist (CSV)</label>
+                        <label><input type="checkbox" data-mfg-output="project" checked> Editable PCB project (JSON)</label>
+                        <label><input type="checkbox" data-mfg-output="documentation" checked> Manufacturing notes</label>
+                    </div>
+                </section>
+            </div>
+            <section class="pcb-manufacturing-section pcb-manufacturing-checks">
+                <div class="pcb-manufacturing-section-heading"><h3>Readiness checks</h3><button class="canvas-action-button" type="button" data-mfg-validate>Verify board</button></div>
+                <p class="pcb-manufacturing-status" data-mfg-status role="status" aria-live="polite">Run the board checks before generating files.</p>
+                <ul class="pcb-manufacturing-findings" data-mfg-findings></ul>
+                <p class="pcb-field-note">These are basic model-based checks, not certification. Current estimates and passing results do not guarantee electrical safety or manufacturer compatibility.</p>
+            </section>
+            <section class="pcb-manufacturing-section pcb-manufacturing-preview">
+                <div class="pcb-manufacturing-section-heading"><h3>Export preview</h3><button class="canvas-action-button" type="button" data-mfg-preview>Generate preview</button></div>
+                <div class="pcb-manufacturing-files" data-mfg-files></div>
+                <pre data-mfg-file-preview aria-label="Selected generated file preview">Generate a preview to inspect the actual manufacturing file contents.</pre>
+                <div class="pcb-manufacturing-actions">
+                    <span class="pcb-manufacturing-status" data-mfg-preview-status role="status" aria-live="polite"></span>
+                    <button class="studio-primary-button" type="button" data-mfg-package disabled>Download project package (.zip)</button>
+                </div>
+            </section>
+            <section class="pcb-manufacturing-section">
+                <h3>Export history</h3>
+                <ol class="pcb-manufacturing-history" data-mfg-history></ol>
+            </section>
+        </dialog>
+        <section class="canvas-editor" id="canvasEditor" aria-label="2D canvas studio" hidden>
+            <header class="canvas-topbar">
+                <div class="canvas-brand">
+                    <button class="canvas-home-button" type="button" data-close-canvas aria-label="Close canvas studio">‹</button>
+                    <span class="canvas-brand-mark" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M4 20 15.5 4.5a2.1 2.1 0 0 1 3.3 2.6L7.3 22H4v-2Z"/><path d="m13.8 6.8 3.4 2.6"/></svg>
+                    </span>
+                    <div class="canvas-project-title">
+                        <strong data-canvas-project-name>Untitled canvas</strong>
+                        <span>CANVAS STUDIO <i></i> <span data-canvas-save-state>ALL CHANGES SAVED</span></span>
+                    </div>
+                </div>
+                <div class="canvas-top-actions">
+                    <button class="canvas-action-button" type="button" data-canvas-undo title="Undo (Ctrl+Z)" aria-label="Undo">↶</button>
+                    <button class="canvas-action-button" type="button" data-canvas-redo title="Redo (Ctrl+Shift+Z)" aria-label="Redo">↷</button>
+                    <span class="canvas-top-divider"></span>
+                    <button class="canvas-action-button" type="button" data-canvas-open title="Open a canvas project">Open</button>
+                    <button class="canvas-action-button" type="button" data-canvas-save title="Save this project">Save</button>
+                    <button class="canvas-action-button" type="button" data-canvas-import-image title="Import an image onto the canvas">Image</button>
+                    <button class="canvas-export-button" type="button" data-canvas-export>Export PNG <span aria-hidden="true">↗</span></button>
+                    <input type="file" data-canvas-file accept="application/json,.json" hidden>
+                    <input type="file" data-canvas-image-file accept="image/*" hidden>
+                </div>
+            </header>
+            <div class="canvas-workspace">
+                <aside class="canvas-tool-rail" aria-label="Drawing tools">
+                    <span class="canvas-rail-kicker">TOOLS</span>
+                    <button type="button" class="canvas-tool" data-canvas-tool="select" aria-pressed="false" title="Select and move (V)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 3 14 10-6 1.2L10 20 5 3Z"/></svg><span>Select</span></button>
+                    <button type="button" class="canvas-tool active" data-canvas-tool="brush" aria-pressed="true" title="Brush (B)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5 5 5M4 20c4.6-.4 6-2.8 7.4-5.2L18 8a2.1 2.1 0 0 0-3-3l-6.8 6.6C5.8 14 4.5 15.5 4 20Z"/></svg><span>Brush</span></button>
+                    <button type="button" class="canvas-tool" data-canvas-tool="eraser" aria-pressed="false" title="Eraser (E)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.2 5.3 10.5 10.5a2 2 0 0 1 0 2.8L17 20.3H9l-5.4-5.4a2 2 0 0 1 0-2.8l4.6-4.6a2 2 0 0 1 0-2.2 2 2 0 0 1 0 0Z"/><path d="m8 8 8 8"/></svg><span>Eraser</span></button>
+                    <button type="button" class="canvas-tool" data-canvas-tool="eyedropper" aria-pressed="false" title="Eyedropper (I)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5 5 5M4 20l5.8-1.2L19 9.6 14.4 5 5.2 14.2 4 20Z"/><path d="m12.8 6.6 4.6 4.6"/></svg><span>Eyedropper</span></button>
+                    <span class="canvas-rail-divider"></span>
+                    <button type="button" class="canvas-tool" data-canvas-tool="line" aria-pressed="false" title="Line (L)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5"/></svg><span>Line</span></button>
+                    <button type="button" class="canvas-tool" data-canvas-tool="rectangle" aria-pressed="false" title="Rectangle (R)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="1"/></svg><span>Rectangle</span></button>
+                    <button type="button" class="canvas-tool" data-canvas-tool="ellipse" aria-pressed="false" title="Ellipse (O)"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="8" ry="6.5"/></svg><span>Ellipse</span></button>
+                    <button type="button" class="canvas-tool" data-canvas-tool="polygon" aria-pressed="false" title="Hexagon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7.2 4.5 9.6 0 4.8 7.5-4.8 7.5H7.2L2.4 12l4.8-7.5Z"/></svg><span>Hexagon</span></button>
+                    <button type="button" class="canvas-tool" data-canvas-tool="star" aria-pressed="false" title="Star"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.8 6 6.5.8-4.8 4.5 1.2 6.4-5.7-3.2-5.7 3.2 1.2-6.4-4.8-4.5 6.5-.8L12 2.8Z"/></svg><span>Star</span></button>
+                    <button type="button" class="canvas-tool" data-canvas-tool="text" aria-pressed="false" title="Text (T)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6V4h16v2M12 4v16m-4 0h8"/></svg><span>Text</span></button>
+                    <span class="canvas-rail-spacer"></span>
+                    <button type="button" class="canvas-tool canvas-tool-bottom" data-canvas-grid aria-pressed="true" title="Toggle drafting grid"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M4 16h16M10 4v16M16 4v16"/></svg><span>Grid</span></button>
+                </aside>
+                <main class="canvas-work-area">
+                    <div class="canvas-toolbar" role="toolbar" aria-label="Canvas properties">
+                        <div class="canvas-field">
+                            <label for="canvasColor">Stroke</label>
+                            <input id="canvasColor" data-canvas-color type="color" value="#28374b" aria-label="Stroke colour">
+                        </div>
+                        <span class="canvas-toolbar-divider"></span>
+                        <label class="canvas-field canvas-size-field" for="canvasBrushSize">
+                            <span>Size <output data-canvas-size-label>4 px</output></span>
+                            <input id="canvasBrushSize" data-canvas-size type="range" min="1" max="80" value="4">
+                        </label>
+                        <span class="canvas-toolbar-divider"></span>
+                            <details class="canvas-brush-menu" data-canvas-brush-menu>
+                                <summary title="Brush profile and stroke settings">Brush settings</summary>
+                                <div class="canvas-brush-popover">
+                                    <label>Brush profile
+                                        <select data-canvas-brush>
+                                            <option value="round">Round ink</option>
+                                            <option value="pencil">Graphite</option>
+                                            <option value="marker">Marker</option>
+                                            <option value="airbrush">Airbrush</option>
+                                        </select>
+                                    </label>
+                                    <label>Tip
+                                        <select data-canvas-tip>
+                                            <option value="round">Round</option>
+                                            <option value="square">Square</option>
+                                        </select>
+                                    </label>
+                                    <label>Opacity <output data-canvas-opacity-label>100%</output>
+                                        <input type="range" data-canvas-opacity min="5" max="100" value="100">
+                                    </label>
+                                    <label>Smoothing <output data-canvas-smoothing-label>35%</output>
+                                        <input type="range" data-canvas-smoothing min="0" max="100" value="35">
+                                    </label>
+                                    <div class="canvas-quick-colors" role="group" aria-label="Quick colors">
+                                        <button type="button" data-canvas-swatch="#172335" aria-label="Use charcoal" title="Charcoal"></button>
+                                        <button type="button" data-canvas-swatch="#e65050" aria-label="Use scarlet" title="Scarlet"></button>
+                                        <button type="button" data-canvas-swatch="#e89a36" aria-label="Use amber" title="Amber"></button>
+                                        <button type="button" data-canvas-swatch="#e5c747" aria-label="Use yellow" title="Yellow"></button>
+                                        <button type="button" data-canvas-swatch="#348b66" aria-label="Use leaf green" title="Leaf green"></button>
+                                        <button type="button" data-canvas-swatch="#3486c2" aria-label="Use blue" title="Blue"></button>
+                                        <button type="button" data-canvas-swatch="#885dc0" aria-label="Use violet" title="Violet"></button>
+                                        <button type="button" data-canvas-swatch="#ffffff" aria-label="Use white" title="White"></button>
+                                    </div>
+                                </div>
+                            </details>
+                            <span class="canvas-toolbar-divider"></span>
+                            <label class="canvas-fill-option"><input type="checkbox" data-canvas-fill><span class="canvas-checkbox"></span>Fill shapes</label>
+                            <span class="canvas-toolbar-spacer"></span>
+                            <span class="canvas-dimension-label">1600 <i>×</i> 1000 <small>PX</small></span>
+                            <button class="canvas-zoom-button" type="button" data-canvas-zoom-out aria-label="Zoom out">−</button>
+                            <span class="canvas-zoom-label" data-canvas-zoom>100%</span>
+                            <button class="canvas-zoom-button" type="button" data-canvas-zoom-in aria-label="Zoom in">+</button>
+                            <button class="canvas-fit-button" type="button" data-canvas-fit>Fit</button>
+                        </div>
+                        <div class="canvas-stage" data-canvas-stage>
+                            <div class="canvas-artboard" data-canvas-artboard>
+                                <canvas class="drawing-canvas" data-drawing-canvas width="1600" height="1000" aria-label="Drawing canvas. Choose a tool and drag to create artwork." tabindex="0"></canvas>
+                                <canvas class="canvas-preview" data-canvas-preview width="1600" height="1000" aria-hidden="true"></canvas>
+                            </div>
+                        </div>
+                        <footer class="canvas-statusbar">
+                            <span class="canvas-status-dot"></span><span data-canvas-tool-status>Brush ready</span>
+                            <span class="canvas-status-spacer"></span>
+                            <span>RGB</span><span class="canvas-status-divider"></span><span>1600 × 1000 px</span>
+                            <span class="canvas-status-divider"></span><span data-canvas-zoom-status>100%</span>
+                        </footer>
+                    </main>
+                    <aside class="canvas-inspector" aria-label="Canvas settings">
+                        <div class="canvas-inspector-heading"><span>DOCUMENT</span><span class="canvas-inspector-live"><i></i> LIVE</span></div>
+                        <div class="canvas-inspector-title" data-canvas-inspector-title>Untitled canvas</div>
+                        <p class="canvas-inspector-description" data-canvas-inspector-description>Your ideas, drawn at full resolution.</p>
+                        <div class="canvas-inspector-divider"></div>
+                        <label class="canvas-property-label" for="canvasBackground">Paper</label>
+                        <div class="canvas-paper-picker"><input id="canvasBackground" data-canvas-background type="color" value="#ffffff"><span data-canvas-background-label>Pure white</span></div>
+                        <div class="canvas-inspector-divider"></div>
+                        <div class="canvas-layer-heading"><span>LAYERS</span><div><button type="button" data-canvas-add-layer aria-label="Add layer" title="Add layer">+</button><button type="button" data-canvas-clear title="Clear the active layer">Clear layer</button></div></div>
+                        <div class="canvas-layer-list" data-canvas-layer-list aria-label="Canvas layers"></div>
+                        <div class="canvas-inspector-note"><span>⌘</span><p>Undo with <kbd>Ctrl</kbd> + <kbd>Z</kbd><br>Export a PNG anytime.</p></div>
+                    </aside>
+                </div>
+            <dialog class="cad-feature-dialog canvas-text-dialog" data-canvas-text-dialog aria-labelledby="canvasTextTitle">
+                <form data-canvas-text-form>
+                    <header>
+                        <span class="studio-kicker">CANVAS TYPE</span>
+                        <h2 id="canvasTextTitle">Add text</h2>
+                        <p>Place editable type on the active layer.</p>
+                    </header>
+                    <label>Text
+                        <textarea name="text" maxlength="200" rows="3" required placeholder="Write something…"></textarea>
+                    </label>
+                    <label>Typeface
+                        <select name="fontFamily">
+                            <option value="sans-serif">Sans serif</option>
+                            <option value="serif">Serif</option>
+                            <option value="monospace">Monospace</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Trebuchet MS">Trebuchet</option>
+                        </select>
+                    </label>
+                    <div class="cad-feature-actions">
+                        <button type="button" data-canvas-text-cancel>Cancel</button>
+                        <button class="studio-primary-button" type="submit">Place text <span aria-hidden="true">→</span></button>
+                    </div>
+                </form>
+            </dialog>
+        </section>
+        <section class="model-editor" id="modelEditor" aria-label="3D design workspace" hidden>
+            <header class="editor-topbar">
+                <div class="editor-brand">
+                    <button class="editor-home-button" type="button" data-close-editor aria-label="Close editor">‹</button>
+                    <span class="editor-brand-mark" aria-hidden="true">S</span>
+                    <div class="editor-project-title">
+                        <strong data-editor-project-name>New Design</strong>
+                        <span>3D PRINT STUDIO <i aria-hidden="true"></i> SAVED LOCALLY</span>
+                    </div>
+                </div>
+                <div class="editor-top-actions">
+                    <span class="editor-save-status" data-save-status>All changes saved</span>
+                    <button class="editor-action-button" type="button" data-save-project title="Save project (Ctrl+S)">Save</button>
+                    <button class="editor-action-button" type="button" data-export-project-json title="Export editable Smart Desk project">Project</button>
+                    <button class="editor-action-button" type="button" data-mesh-check>Mesh check</button>
+                    <button class="editor-action-button" type="button" data-open-slicer>Slice G-code</button>
+                    <button class="editor-action-button editor-export-button" type="button" data-export-stl>Export STL</button>
+                    <button class="editor-action-button" type="button" data-export-obj>OBJ</button>
+                </div>
+            </header>
+            <div class="editor-toolbar" role="toolbar" aria-label="Modeling tools">
+                <div class="editor-tool-group">
+                    <button class="editor-tool-button active" type="button" data-tool="select" aria-pressed="true" title="Select object (V)"><span>↖</span><small>Select</small></button>
+                    <button class="editor-tool-button" type="button" data-tool="move" aria-pressed="false" title="Move object (G)"><span>✣</span><small>Move</small></button>
+                    <button class="editor-tool-button" type="button" data-tool="rotate" aria-pressed="false" title="Rotate object (R)"><span>⟳</span><small>Rotate</small></button>
+                    <button class="editor-tool-button" type="button" data-tool="orbit" aria-pressed="false" title="Orbit camera (hold right mouse button)"><span>◉</span><small>Orbit</small></button>
+                </div>
+                <span class="editor-toolbar-divider"></span>
+                <div class="editor-tool-group">
+                    <button class="editor-tool-button history-button" type="button" data-undo title="Undo (Ctrl+Z)" disabled>↶</button>
+                    <button class="editor-tool-button history-button" type="button" data-redo title="Redo (Ctrl+Y)" disabled>↷</button>
+                </div>
+                <span class="editor-toolbar-divider"></span>
+                <div class="editor-tool-group">
+                    <button class="editor-tool-button" type="button" data-isolate-selection title="Show only the selected body" disabled><span>◉</span><small>Isolate</small></button>
+                    <button class="editor-tool-button" type="button" data-show-all title="Show every body">Show all</button>
+                    <button class="editor-tool-button" type="button" data-create-assembly title="Group two selected bodies as a fixed assembly" disabled><span>⊕</span><small>Fix</small></button>
+                    <button class="editor-tool-button" type="button" data-break-assembly title="Release the selected bodies from their assembly" disabled><span>⊖</span><small>Release</small></button>
+                </div>
+                <span class="editor-toolbar-divider"></span>
+                <div class="editor-tool-group">
+                    <button class="editor-tool-button" type="button" data-add-shape="box" title="Add a box">＋ <small>Box</small></button>
+                    <button class="editor-tool-button" type="button" data-add-shape="cylinder" title="Add a cylinder">＋ <small>Cylinder</small></button>
+                    <button class="editor-tool-button" type="button" data-add-shape="sphere" title="Add a sphere">＋ <small>Sphere</small></button>
+                    <button class="editor-tool-button" type="button" data-add-shape="cone" title="Add a cone">＋ <small>Cone</small></button>
+                    <button class="editor-tool-button" type="button" data-add-shape="torus" title="Add a torus">＋ <small>Torus</small></button>
+                    <button class="editor-tool-button" type="button" data-add-shape="capsule" title="Add a capsule">＋ <small>Capsule</small></button>
+                    <button class="editor-tool-button" type="button" data-add-shape="pyramid" title="Add a pyramid">＋ <small>Pyramid</small></button>
+                    <button class="editor-tool-button" type="button" data-add-shape="wedge" title="Add a wedge">＋ <small>Wedge</small></button>
+                </div>
+                <span class="editor-toolbar-divider"></span>
+                <div class="editor-tool-group editor-feature-tools">
+                    <button class="editor-tool-button" type="button" data-sketch-feature>＋ <small>Sketch solid</small></button>
+                    <button class="editor-tool-button" type="button" data-linear-pattern title="Create a linked linear pattern">▥ <small>Pattern</small></button>
+                    <button class="editor-tool-button" type="button" data-mirror-feature title="Mirror a linked copy across a plane">⇋ <small>Mirror</small></button>
+                    <button class="editor-tool-button" type="button" data-open-align disabled title="Select two or more unlinked bodies to align">⇤ <small>Align</small></button>
+                    <button class="editor-tool-button" type="button" data-open-distribute disabled title="Select three or more unlinked bodies to distribute">↔ <small>Distribute</small></button>
+                    <button class="editor-tool-button" type="button" data-boolean="union" title="Join two selected bodies">Join</button>
+                    <button class="editor-tool-button" type="button" data-boolean="subtract" title="Subtract the second selected body from the first">Cut</button>
+                    <button class="editor-tool-button" type="button" data-boolean="intersect" title="Keep the common volume of two selected bodies">Intersect</button>
+                </div>
+                <span class="editor-toolbar-spacer"></span>
+                <label class="grid-snap-option"><input type="checkbox" data-grid-snap checked><span>Snap 10 mm</span></label>
+                <button class="editor-tool-button view-reset-button" type="button" data-reset-view title="Reset camera view">Reset view</button>
+                <button class="editor-tool-button inspector-toggle-button" type="button" data-inspector-toggle aria-pressed="false">Inspector</button>
+                <button class="editor-tool-button" type="button" data-import-project title="Open a saved Smart Desk project">Open project</button>
+                <input type="file" data-project-file accept="application/json,.json" hidden>
+                <button class="editor-tool-button" type="button" data-import-model title="Import an STL or OBJ mesh into this project">Import STL/OBJ</button>
+                <input type="file" data-model-file accept=".stl,.obj,model/stl,model/obj,text/plain" hidden>
+                <button class="editor-tool-button" type="button" data-import-3mf title="Import 3MF mesh objects with build transforms; component objects are not supported">Import 3MF</button>
+                <input type="file" data-3mf-file accept=".3mf,model/3mf" hidden>
+                <button class="editor-tool-button" type="button" data-export-3mf title="Export visible bodies as a 3MF model">Export 3MF</button>
+                <button class="editor-tool-button" type="button" data-import-step title="Import faceted AP242 STEP meshes; analytic B-rep solids are not supported">Import STEP</button>
+                <input type="file" data-step-file accept=".step,.stp,text/plain" hidden>
+                <button class="editor-tool-button" type="button" data-export-step title="Export a faceted STEP model">Export STEP</button>
+                <button class="editor-tool-button" type="button" data-measure-toggle aria-pressed="false" title="Measure between points on visible bodies"><span>↔</span><small>Measure</small></button>
+                <button class="editor-tool-button" type="button" data-section-toggle aria-pressed="false" title="Toggle a horizontal section cut"><span>◫</span><small>Section</small></button>
+                <label class="section-position" data-section-control hidden>Section Y <input type="range" data-section-position min="0" max="220" value="110"><output data-section-value>110 mm</output></label>
+            </div>
+            <div class="editor-workspace">
+                <aside class="editor-panel editor-object-panel" aria-label="Scene objects">
+                    <div class="editor-panel-heading">
+                        <div><span class="editor-panel-kicker">PARAMETRIC HISTORY</span><h2>Feature tree</h2></div>
+                        <button class="panel-icon-button" type="button" data-add-menu-toggle aria-label="Add an object">+</button>
+                    </div>
+                    <div class="primitive-menu" data-primitive-menu hidden>
+                        <button type="button" data-add-shape="box">▰ <span>Box</span></button>
+                        <button type="button" data-add-shape="cylinder">◉ <span>Cylinder</span></button>
+                        <button type="button" data-add-shape="sphere">● <span>Sphere</span></button>
+                        <button type="button" data-add-shape="cone">△ <span>Cone</span></button>
+                        <button type="button" data-add-shape="torus">◎ <span>Torus</span></button>
+                        <button type="button" data-add-shape="capsule">⬭ <span>Capsule</span></button>
+                        <button type="button" data-add-shape="pyramid">◇ <span>Pyramid</span></button>
+                        <button type="button" data-add-shape="wedge">◢ <span>Wedge</span></button>
+                    </div>
+                    <p class="feature-tree-hint">Manage visibility, suppression, linked assemblies, and feature order.</p>
+                    <div class="object-list" data-object-list aria-label="CAD feature history"></div>
+                    <div class="object-panel-footer">
+                        <span class="live-dot"></span>
+                        <span>Build plate <strong>220 × 220 mm</strong></span>
+                    </div>
+                </aside>
+                <main class="editor-viewport-column">
+                    <div class="viewport-stage">
+                        <canvas class="model-canvas" data-model-canvas aria-label="Interactive 3D CAD viewport" tabindex="0"></canvas>
+                        <div class="viewport-hud viewport-hud-top">
+                            <span class="viewport-perspective">PERSPECTIVE</span>
+                            <span class="viewport-units">MILLIMETRES <i></i> 1:1</span>
+                        </div>
+                        <div class="viewport-controls" role="toolbar" aria-label="Viewport controls">
+                            <button type="button" data-view="front" title="Front view">Front</button>
+                            <button type="button" data-view="top" title="Top view">Top</button>
+                            <button type="button" data-view="right" title="Right view">Right</button>
+                            <button type="button" data-view="iso" title="Isometric view" aria-pressed="true">ISO</button>
+                            <span aria-hidden="true"></span>
+                            <button type="button" data-projection-toggle aria-pressed="false" title="Switch between perspective and orthographic projection">Ortho</button>
+                            <button type="button" data-fit-view title="Fit all objects in the viewport">Fit all</button>
+                            <button type="button" data-fit-selection title="Fit the selected object in the viewport">Fit selected</button>
+                        </div>
+                        <div class="viewport-hint" data-viewport-hint>Drag to move <span>·</span> Right-drag to orbit <span>·</span> Scroll to zoom</div>
+                        <div class="viewport-axis" aria-label="Axis colours: X red, Y green, Z blue">
+                            <span class="axis-x">X</span><span class="axis-y">Y</span><span class="axis-z">Z</span>
+                        </div>
+                    </div>
+                    <footer class="editor-statusbar">
+                        <span data-selection-status>No object selected</span>
+                        <span><i></i> GRID 10 MM</span>
+                        <span>BUILD AREA 220 × 220 MM</span>
+                        <span class="editor-status-spacer"></span>
+                        <span data-zoom-status>ZOOM 100%</span>
+                    </footer>
+                </main>
+                <aside class="editor-panel editor-inspector" aria-label="Selected object settings">
+                    <div class="editor-panel-heading">
+                        <div><span class="editor-panel-kicker">OBJECT DETAILS</span><h2>Inspector</h2></div>
+                    </div>
+                    <div class="inspector-empty" data-inspector-empty>
+                        <span aria-hidden="true">◇</span>
+                        <p>Select an object to edit its size and position.</p>
+                    </div>
+                    <div class="inspector-content" data-inspector-content hidden>
+                        <label class="inspector-name-label" for="objectName">Object name</label>
+                        <input class="inspector-name" id="objectName" data-object-name type="text" maxlength="48">
+                        <section class="inspector-section">
+                            <h3>Dimensions <span>MM</span></h3>
+                            <div class="dimension-fields">
+                                <label><span>Width</span><input type="number" data-property="width" min="1" max="220" step="1"></label>
+                                <label><span>Depth</span><input type="number" data-property="depth" min="1" max="220" step="1"></label>
+                                <label><span>Height</span><input type="number" data-property="height" min="1" max="220" step="1"></label>
+                            </div>
+                            <label class="inspector-check"><input type="checkbox" data-uniform-scale checked><span class="custom-checkbox"></span>Keep proportions</label>
+                        </section>
+                        <section class="inspector-section">
+                            <h3>Position <span>MM</span></h3>
+                            <div class="dimension-fields">
+                                <label><span class="axis-label-x">X</span><input type="number" data-property="x" step="1"></label>
+                                <label><span class="axis-label-y">Y</span><input type="number" data-property="y" step="1"></label>
+                                <label><span class="axis-label-z">Z</span><input type="number" data-property="z" step="1"></label>
+                            </div>
+                        </section>
+                        <section class="inspector-section">
+                            <h3>Rotation <span>DEGREES</span></h3>
+                            <div class="dimension-fields">
+                                <label><span class="axis-label-x">X</span><input type="number" data-property="rotationX" step="5"></label>
+                                <label><span class="axis-label-y">Y</span><input type="number" data-property="rotationY" step="5"></label>
+                                <label><span class="axis-label-z">Z</span><input type="number" data-property="rotationZ" step="5"></label>
+                            </div>
+                        </section>
+                        <section class="inspector-section">
+                            <h3>Appearance <span>COLOR</span></h3>
+                            <label class="object-color-field"><span>Part color</span><input type="color" data-property="color" value="#7ea5d0"></label>
+                        </section>
+                        <div class="inspector-actions">
+                            <button type="button" data-duplicate-object>Duplicate</button>
+                            <button type="button" data-delete-object>Delete object</button>
+                        </div>
+                    </div>
+                    <div class="inspector-help"><span>?</span> All dimensions are in millimetres.</div>
+                </aside>
+            </div>
+        </section>
+    </div>
+
+    <dialog class="cad-feature-dialog mesh-check-dialog" data-mesh-check-dialog aria-labelledby="meshCheckTitle">
+        <section class="mesh-check-content">
+            <header>
+                <span class="studio-kicker">GEOMETRY PREFLIGHT</span>
+                <button class="studio-back-button" type="button" data-close-mesh-check aria-label="Close mesh check">&times;</button>
+                <h2 id="meshCheckTitle">Mesh integrity check</h2>
+                <p>Checks exported triangle geometry for common topology errors before you send it to a slicer.</p>
+            </header>
+            <div class="mesh-check-summary-row">
+                <span class="mesh-check-status" data-mesh-check-status>READY</span>
+                <p data-mesh-check-summary></p>
+            </div>
+            <div class="mesh-check-table-wrap">
+                <table class="mesh-check-table">
+                    <thead><tr><th scope="col">Body</th><th scope="col">Triangles</th><th scope="col">Shells</th><th scope="col">Findings</th></tr></thead>
+                    <tbody data-mesh-check-results></tbody>
+                </table>
+            </div>
+            <div class="mesh-check-actions">
+                <button class="editor-action-button" type="button" data-close-mesh-check>Close</button>
+            </div>
+        </section>
+    </dialog>
+
+    <dialog class="cad-feature-dialog transform-dialog" data-transform-dialog aria-labelledby="transformTitle">
+        <form data-transform-form>
+            <header>
+                <span class="studio-kicker">MULTI-BODY TOOLS</span>
+                <button class="studio-back-button" type="button" data-close-transform aria-label="Close transform tools">&times;</button>
+                <h2 id="transformTitle">Align selected bodies</h2>
+                <p data-transform-description>Align every selected body to the primary selection’s bounding-box plane.</p>
+            </header>
+            <div class="cad-feature-fields">
+                <label>Axis
+                    <select name="axis">
+                        <option value="x">X · left/right</option>
+                        <option value="y">Y · vertical</option>
+                        <option value="z">Z · front/back</option>
+                    </select>
+                </label>
+                <label data-align-mode-field>Align by
+                    <select name="mode">
+                        <option value="min">Minimum bounds</option>
+                        <option value="center">Centers</option>
+                        <option value="max">Maximum bounds</option>
+                    </select>
+                </label>
+            </div>
+            <p class="cad-feature-note" data-transform-note></p>
+            <div class="cad-feature-actions">
+                <button type="button" data-close-transform>Cancel</button>
+                <button class="studio-primary-button" type="submit">Apply <span aria-hidden="true">→</span></button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="cad-feature-dialog slicer-dialog" data-slicer-dialog aria-labelledby="slicerTitle">
+        <form data-slicer-form>
+            <header>
+                <span class="studio-kicker">EXPERIMENTAL FDM</span>
+                <button class="studio-back-button" type="button" data-close-slicer aria-label="Close slicer">&times;</button>
+                <h2 id="slicerTitle">Slice for a test print</h2>
+                <p>Creates generic single-nozzle G-code from closed meshes. Review every setting and the output before use.</p>
+            </header>
+            <div class="slicer-warning" role="note">
+                Not a production-slicer replacement: one boundary pass only; no perimeter offsets, supports, retraction, bridging,
+                travel optimization, material-specific validation, printer-specific start code, or print-time estimate. Bodies are sliced
+                separately; overlapping shells are not unioned and may print twice. There is no skirt/brim. Boolean-union
+                overlapping parts first.
+                Validate the file in your printer’s own slicer/host and supervise the first layer.
+            </div>
+            <div class="cad-feature-fields slicer-fields">
+                <label>Quality preset
+                    <select name="qualityPreset" data-quality-preset>
+                        <option value="balanced">Balanced · 0.20 mm</option>
+                        <option value="draft">Draft · 0.28 mm</option>
+                        <option value="detail">Fine detail · 0.12 mm</option>
+                    </select>
+                </label>
+                <label>Material preset
+                    <select name="materialPreset" data-material-preset>
+                        <option value="pla">PLA · generic starting point</option>
+                        <option value="petg">PETG · generic starting point</option>
+                        <option value="abs">ABS · generic starting point</option>
+                    </select>
+                </label>
+                <label>Bed width (mm)<input name="bedWidth" type="number" min="50" max="1000" value="220" required></label>
+                <label>Bed depth (mm)<input name="bedDepth" type="number" min="50" max="1000" value="220" required></label>
+                <label>Bed height (mm)<input name="bedHeight" type="number" min="20" max="2000" value="250" required></label>
+                <label>Nozzle (mm)<input name="nozzleDiameter" type="number" min="0.2" max="1.2" step="0.05" value="0.4" required></label>
+                <label>Layer height (mm)<input name="layerHeight" type="number" min="0.06" max="0.8" step="0.01" value="0.2" required></label>
+                <label>Line width (mm)<input name="lineWidth" type="number" min="0.2" max="1.5" step="0.01" value="0.45" required></label>
+                <label>Filament diameter (mm)<input name="filamentDiameter" type="number" min="1" max="3" step="0.01" value="1.75" required></label>
+                <label>Infill (%)<input name="infillPercent" type="number" min="0" max="100" step="1" value="20" required></label>
+                <label>Infill pattern
+                    <select name="infillPattern">
+                        <option value="lines">Lines · alternating</option>
+                        <option value="grid" selected>Grid · two directions</option>
+                        <option value="triangles">Triangles · three directions</option>
+                    </select>
+                </label>
+                <label>Bottom solid layers<input name="bottomLayers" type="number" min="0" max="20" step="1" value="3" required></label>
+                <label>Top solid layers<input name="topLayers" type="number" min="0" max="20" step="1" value="3" required></label>
+                <label>Nozzle temperature (°C)<input name="nozzleTemperature" type="number" min="0" max="300" step="1" value="205" required></label>
+                <label>Bed temperature (°C)<input name="bedTemperature" type="number" min="0" max="150" step="1" value="60" required></label>
+                <label>Wall speed (mm/s)<input name="perimeterSpeed" type="number" min="5" max="180" step="1" value="30" required></label>
+                <label>Infill speed (mm/s)<input name="infillSpeed" type="number" min="5" max="240" step="1" value="45" required></label>
+                <label>Travel speed (mm/s)<input name="travelSpeed" type="number" min="10" max="400" step="1" value="120" required></label>
+            </div>
+            <p class="slicer-result" data-slicer-profile-note>Generic profiles are starting points only. Check your filament maker’s recommendations; ABS generally needs an enclosure and ventilation.</p>
+            <p class="slicer-result" data-slicer-result role="status" aria-live="polite"></p>
+            <div class="cad-feature-actions">
+                <button type="button" data-close-slicer>Cancel</button>
+                <button class="studio-primary-button" type="submit">Slice &amp; download <span aria-hidden="true">→</span></button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="cad-feature-dialog" data-cad-feature-dialog aria-labelledby="cadFeatureTitle">
+        <form data-cad-feature-form>
+            <header>
+                <span class="studio-kicker">PARAMETRIC FEATURE</span>
+                <button class="studio-back-button" type="button" data-close-feature-dialog aria-label="Close feature dialog">&times;</button>
+                <h2 id="cadFeatureTitle">Create a sketch solid</h2>
+                <p>Choose a closed 2D profile, then extrude it or revolve it around its vertical axis.</p>
+            </header>
+            <label for="cadFeatureName">Feature name</label>
+            <input id="cadFeatureName" name="featureName" value="Sketch solid" maxlength="48" required>
+            <div class="cad-feature-fields">
+                <label>Profile
+                    <select name="profile">
+                        <option value="rectangle">Rectangle</option>
+                        <option value="circle">Circle</option>
+                        <option value="slot">Slot</option>
+                        <option value="hexagon">Regular hexagon</option>
+                        <option value="star">Star</option>
+                    </select>
+                </label>
+                <label>Operation
+                    <select name="operation">
+                        <option value="extrude">Extrude</option>
+                        <option value="revolve">Revolve 360°</option>
+                    </select>
+                </label>
+                <label>Width / diameter (mm)<input name="width" type="number" min="1" max="220" value="40" required></label>
+                <label>Depth / bore (mm)<input name="depth" type="number" min="0" max="220" value="30" required></label>
+                <label>Height (mm)<input name="height" type="number" min="1" max="220" value="20" required></label>
+                <label class="sketch-constraint-option"><input name="equalAxes" type="checkbox"><span>Equal profile axes</span></label>
+                <label>Edge bevel (mm)<input name="bevel" type="number" min="0" max="5" step="any" value="0"></label>
+                <label>Edge treatment
+                    <select name="edgeStyle">
+                        <option value="fillet">Rounded fillet</option>
+                        <option value="chamfer">Angled chamfer</option>
+                    </select>
+                </label>
+            </div>
+            <p class="cad-feature-note" data-feature-note>Edge treatment applies to extruded profiles. Dimensions remain editable in the inspector.</p>
+            <div class="cad-feature-actions">
+                <button type="button" data-close-feature-dialog>Cancel</button>
+                <button class="studio-primary-button" type="submit" data-feature-submit>Create feature <span aria-hidden="true">→</span></button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="cad-feature-dialog" data-mirror-dialog aria-labelledby="cadMirrorTitle">
+        <form data-mirror-form>
+            <header>
+                <span class="studio-kicker">PARAMETRIC FEATURE</span>
+                <button class="studio-back-button" type="button" data-close-mirror-dialog aria-label="Close mirror dialog">&times;</button>
+                <h2 id="cadMirrorTitle">Mirror a body</h2>
+                <p>Create a linked reflection of the selected body across a global plane.</p>
+            </header>
+            <label for="cadMirrorName">Feature name</label>
+            <input id="cadMirrorName" name="featureName" value="Mirror" maxlength="48" required>
+            <div class="cad-feature-fields">
+                <label>Plane normal
+                    <select name="axis">
+                        <option value="x">X (YZ plane)</option>
+                        <option value="y">Y (XZ plane)</option>
+                        <option value="z">Z (XY plane)</option>
+                    </select>
+                </label>
+                <label>Plane offset (mm)
+                    <input name="offset" type="number" min="-220" max="220" step="any" value="0" required>
+                </label>
+            </div>
+            <p class="cad-feature-note" data-mirror-note>The copy reflects across the chosen plane and stays linked to its source body.</p>
+            <div class="cad-feature-actions">
+                <button type="button" data-remove-mirror hidden>Remove mirror</button>
+                <button type="button" data-close-mirror-dialog>Cancel</button>
+                <button class="studio-primary-button" type="submit">Create mirror <span aria-hidden="true">→</span></button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="cad-feature-dialog" data-pattern-dialog aria-labelledby="cadPatternTitle">
+        <form data-pattern-form>
+            <header>
+                <span class="studio-kicker">PARAMETRIC FEATURE</span>
+                <button class="studio-back-button" type="button" data-close-pattern-dialog aria-label="Close pattern dialog">&times;</button>
+                <h2 id="cadPatternTitle">Create a linear pattern</h2>
+                <p>Make linked copies along one axis. Editing the source feature updates every instance.</p>
+            </header>
+            <label for="cadPatternName">Feature name</label>
+            <input id="cadPatternName" name="featureName" value="Linear pattern" maxlength="48" required>
+            <div class="cad-feature-fields">
+                <label>Direction
+                    <select name="axis">
+                        <option value="x">X axis</option>
+                        <option value="y">Y axis</option>
+                        <option value="z">Z axis</option>
+                    </select>
+                </label>
+                <label>Number of bodies
+                    <input name="count" type="number" min="2" max="50" step="1" value="3" required>
+                </label>
+                <label>Spacing (mm)
+                    <input name="spacing" type="number" min="0.1" max="220" step="any" value="30" required>
+                </label>
+            </div>
+            <p class="cad-feature-note" data-pattern-note>The source body is the first item; spacing is measured between body origins.</p>
+            <div class="cad-feature-actions">
+                <button type="button" data-remove-pattern hidden>Remove pattern</button>
+                <button type="button" data-close-pattern-dialog>Cancel</button>
+                <button class="studio-primary-button" type="submit">Create pattern <span aria-hidden="true">→</span></button>
+            </div>
+        </form>
+    </dialog>
+
+    <script type="importmap" nonce="__CSP_NONCE__">
+        {
+            "imports": {
+                "three": "/node_modules/three/build/three.module.js",
+                "three/addons/": "/node_modules/three/examples/jsm/",
+                "three-mesh-bvh": "/node_modules/three-mesh-bvh/build/index.module.js",
+                "three-bvh-csg": "/node_modules/three-bvh-csg/src/index.js"
+            }
+        }
+    </script>
+    <script type="module" src="script.js?v=pcb-view-controls-1"></script>
+    <script type="module" src="robotics-studio.js"></script>
+</body>
+</html>
