@@ -1,76 +1,36 @@
-# smart-desk
-this is a opensource website where all the diff applications like  regarding 3d developing, aurdino ,pcb building and etc it is  focused on to creating a workispace suitable from beginer to a high end develpoer and all other developer insights and suggestion are the most prioritized so that all together can build this as a better platform
 # Smart Desk OS
 
-**A calm, customizable workspace for making things.** Smart Desk brings 3D design, 2D drawing, PCB planning, and robotics prototyping together in one browser-based desktop.
+**An open-source, browser-based workspace for makers.** Smart Desk brings 3D modeling, 2D drawing, PCB planning, and robotics prototyping together in one place.
 
-> **A work in progress:** Smart Desk is an evolving project. Some studios provide useful, test-covered workflows; others are intentionally prototypes. Please read [What works today](#what-works-today) and [Current limitations](#current-limitations) before relying on an export for fabrication or hardware.
+[**Try Smart Desk**](https://creational-crates.github.io/smart-desk/) · [Report a bug or suggest an idea](https://github.com/Creational-crates/smart-desk/issues) · [Contribute](#contributing)
 
-## What is Smart Desk?
+> **Work in progress:** Smart Desk is evolving. Some workflows have automated tests; others are prototypes. Please review the limitations below before relying on generated designs or files.
 
-Smart Desk opens as a personal workspace: a greeting, a live clock, customizable sidebars, and a set of orbiting studio bubbles. Open a bubble to start a project, then use the studio tools to create, inspect, simulate, or export your work.
+## What you can do
 
-The goal is to make a welcoming place where beginners can explore and experienced makers can prototype—while being honest about what the tools do and do not verify.
+- **3D Print Studio:** Create models from primitives, arrange and edit bodies, inspect meshes, import STL/OBJ, and export project JSON, STL, OBJ, 3MF, and supported faceted STEP. Slice suitable models into G-code for review.
+- **PCB Studio:** Plan boards, components, schematics, and layouts; inspect connectivity; and prepare manufacturing archives with supported Gerber, Excellon, BOM, pick-and-place, and project data outputs.
+- **Robotics Studio:** Assemble visual robot projects, connect parts in a planning diagram, build programs with blocks, inspect Arduino-style C++, and experiment with a software-only simulation.
+- **2D Canvas Studio:** Draw with brush, shape, and text tools; work with layers; and export artwork as PNG.
+- **Personal workspace:** Customize colors and appearance, and save projects locally in your browser.
 
-## Highlights
-
-### Make the desk yours
-
-- Personal greeting with an optional saved display name.
-- Light and dark appearance modes.
-- Custom main and side colors, plus curated color palettes.
-- **Diwali special edition:** a festive warm palette with decorative toran, marigold garlands, diyas, and rangoli. Opening the studio bubbles can launch celebratory fireworks. Turn it on or off from **Customisation**.
-- The main screen, navigation, and editors are designed to adapt to different screen sizes. A capable desktop browser is recommended for the 3D workspaces.
-
-### 3D Print Studio
-
-- Build models from primitives such as boxes, cylinders, spheres, cones, toruses, capsules, pyramids, and wedges.
-- Adjust dimensions, position, rotation, and color; duplicate, delete, and organize bodies.
-- Use modeling operations such as sketch solids, linked patterns and mirrors, alignment and distribution, and boolean join, cut, and intersect.
-- Inspect triangle meshes for boundary edges, disconnected pieces, non-manifold edges, inconsistent winding, degenerate triangles, and volume.
-- Import STL and OBJ meshes. Save editable projects locally or export project JSON, STL, OBJ, 3MF, and supported faceted STEP.
-- Slice suitable models into G-code with configurable infill, layer, material, and quality settings.
-
-### 2D Canvas Studio
-
-- Draw on a 1600 × 1000 pixel canvas with brush, shape, and text tools.
-- Work with layers, paper/background color, zoom, undo, and redo.
-- Resume saved canvases and export artwork as PNG.
-
-### PCB Studio
-
-- Create boards with adjustable dimensions, several board themes, and optional starter templates.
-- Place and edit components; create custom library entries.
-- Work across a schematic, a 2D layout, and a 3D board preview.
-- Plan pins, signals, power rails, copper layers, footprints, tracks, vias, and zones.
-- Run the built-in checks, inspect connectivity, and prepare a manufacturing archive. Supported outputs include Gerber copper/outline files, Excellon drill, BOM, pick-and-place, netlist, project data, and manufacturing notes.
-
-### Robotics Studio
-
-- Assemble a robot visually from a searchable parts catalog, wire components, and load starter examples such as an obstacle-avoiding rover, plant monitor, or servo scanner.
-- Create block programs, inspect or edit generated Arduino-style C++, and download a sketch.
-- Adjust simulated sensor inputs and run the visual simulation.
-- Save projects in this browser or import/export a JSON project backup.
-
-## Get started
+## Quick start
 
 ### Requirements
 
-- Node.js and npm.
-- A modern browser with JavaScript modules and WebGL support for the 3D studios.
+- Node.js and npm
+- A modern browser; WebGL is recommended for 3D workspaces
 
 ### Run locally
-
-From the project directory:
 
 ```bash
 npm install
 npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Then open [http://localhost:3000](http://localhost:3000).
 
-The local server serves the application and its approved Three.js modules. It binds to `127.0.0.1` by default; it is intended for local development, not as a public production server.
+The included server is for local development. It binds to `127.0.0.1` by default and is not intended to be exposed as a public production server.
 
 ### Run checks
 
@@ -79,70 +39,45 @@ npm test
 npm run check
 ```
 
-`npm test` runs the Node.js test suite for mesh analysis, 3MF and faceted STEP interchange, slicing, and PCB manufacturing-file generation. `npm run check` performs JavaScript syntax checks on the application and supporting modules.
+The tests cover supporting workflows including mesh analysis, 3MF and faceted STEP interchange, slicing, and PCB manufacturing-file generation. They are not a full end-to-end test of every browser interaction.
 
 ## Saving and privacy
 
-Projects, appearance preferences, and the optional display name are stored in the browser on the current device. They are **not** automatically synchronized to a server or another browser. Use each studio's project export/backup when you need to move or preserve work.
+Projects, appearance preferences, and the optional display name are stored in the browser on the current device. They are not automatically synchronized to a server or another browser. Export project backups if you want to move or preserve your work. Clearing browser data may remove locally saved projects.
 
-Smart Desk does not currently include social-account connections or cloud project storage. The local server's job is to serve the app; do not treat it as an account service or a public hosting deployment.
+Smart Desk does not currently provide accounts, cloud storage, collaboration, or synchronization.
 
-## What works today
+## Important limitations
 
-The repository includes executable tests for:
+Smart Desk is an exploratory maker workspace—not a replacement for professional CAD, EDA, slicers, or hardware validation tools.
 
-- Mesh topology and integrity analysis.
-- 3MF and supported faceted STEP import/export round trips.
-- Slicer toolpath/G-code generation, including validation of meshes and settings.
-- PCB manufacturing outputs, packaging, and selected design-readiness checks.
+- **3D printing:** The slicer is a project implementation, not a printer-certified slicer. Review generated G-code and printer-specific settings in a trusted slicer before printing.
+- **STEP:** Support is limited to faceted geometry; arbitrary STEP solid/B-rep models are not supported.
+- **PCB design:** Built-in checks are basic and do not fully model trace ampacity, thermal performance, electrical safety, or manufacturer-specific fabrication limits. A passing check is not a safety or manufacturability certification.
+- **Robotics:** Simulation uses artificial inputs. It does not connect to an Arduino, compile or execute generated C++, model real electrical behavior, or validate physical wiring.
+- **Deployment:** Production hosting and deployment are not configured in this repository. Do not expose the included local development server directly to the public internet.
 
-The browser UI also implements the studios and local project workflows described above. The automated test suite focuses on the supporting data and export modules; it is **not** a full automated browser test of every interaction.
+Always inspect designs and generated files with tools appropriate to your workflow, and verify hardware against component datasheets and qualified guidance.
 
-## Current limitations
+## Contributing
 
-- **Not a replacement for professional CAD or EDA.** Always inspect models, schematics, layouts, and generated files in the tools appropriate to your workflow.
-- **STEP support is limited to faceted geometry.** It does not import arbitrary STEP solid/B-rep models.
-- **Slicing is a project implementation, not a printer-certified slicer.** Review G-code and printer-specific settings in a trusted slicer before printing.
-- **PCB checks are basic.** Trace ampacity, thermal performance, electrical safety, and manufacturer-specific fabrication limits are not fully modeled. A passing check is not a safety or manufacturing guarantee; the UI identifies additional unsupported or estimated areas.
-- **Robotics simulation is software-only.** It uses artificial sensor inputs; it does not compile or execute generated C++, connect to an Arduino, simulate voltage/current, or validate real wiring. Check component datasheets, compile with the intended Arduino toolchain, and verify wiring and power before connecting hardware.
-- **Browser storage is device-local.** Clearing browser data can remove saved projects. There is no built-in multi-user collaboration, cloud backup, or synchronization.
-- **Production deployment is not configured.** The included server binds locally and is not designed to be exposed directly to the public internet.
+Ideas, bug reports, documentation improvements, and code contributions are welcome. To get started:
 
-## Project layout
-
-| File | Purpose |
-| --- | --- |
-| `index.html`, `style.css`, `script.js` | Workspace interface, styling, and core studio interactions |
-| `robotics-studio.js` | Robotics workbench, block editor, simulation, and sketch workflows |
-| `cad-3mf.js`, `cad-step.js` | 3MF and supported faceted STEP interchange |
-| `cad-mesh-analysis.js`, `cad-slicer.js` | Mesh checks and G-code slicing |
-| `pcb-manufacturing.js` | PCB validation and manufacturing-file generation |
-| `server.mjs` | Local development server and static-file allowlist |
-| `*.test.js` | Node.js tests for supported geometry and manufacturing workflows |
-
-## Developer contributions
-
-**Developer insights, ideas, bug reports, and contributions are very welcome.** Smart Desk is meant to improve through feedback from beginners, designers, electronics makers, and developers alike.
-
-Helpful ways to contribute:
-
-1. Open an issue describing a bug, a confusing interaction, or a feature idea.
-2. For a code change, explain the user problem it solves and keep the change focused.
+1. [Open an issue](https://github.com/Creational-crates/smart-desk/issues) with a bug report or feature idea, or check existing issues first.
+2. For code changes, explain the user problem and keep the change focused.
 3. Add or update tests when changing geometry, project formats, validation, or manufacturing exports.
 4. Run `npm test` and `npm run check` before submitting a pull request.
-5. Clearly document assumptions and limitations—especially for hardware, fabrication, and safety-related workflows.
-
-If you're unsure where to start, open an issue and ask. Thoughtful feedback is just as valuable as code.
+5. Document assumptions and limitations, especially for hardware, fabrication, and safety-related workflows.
 
 ## Built with
 
-- Vanilla JavaScript, HTML, and CSS.
-- [Three.js](https://threejs.org/) for interactive 3D work.
-- [three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh) and [three-bvh-csg](https://github.com/looeee/three-bvh-csg) for mesh acceleration and constructive geometry.
-- Node.js for the local server and test runner.
+- Vanilla JavaScript, HTML, and CSS
+- [Three.js](https://threejs.org/) for interactive 3D work
+- [three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh) and [three-bvh-csg](https://github.com/looeee/three-bvh-csg) for mesh acceleration and constructive geometry
+- Node.js for the local server and test runner
 
-See the dependency packages and their licenses in `package-lock.json` and `node_modules`.
+See `package.json` and `package-lock.json` for dependency details. Smart Desk is released under the [MIT License](LICENSE).
 
 ---
 
-**Have an idea that could make the workspace better? Bring it to the project—developer insights and suggestions are always welcome.**
+If you try Smart Desk, feedback on what was intuitive, confusing, or missing is especially helpful.
